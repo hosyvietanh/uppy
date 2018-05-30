@@ -1,0 +1,481 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contributing — Uppy File Uploader</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Contributing — Uppy File Uploader">
+    <meta name="description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let&#39;s you worry about more important problems than building a file uploader.
+">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/docs/contributing.html">
+    <meta property="og:title" content="Contributing — Uppy File Uploader">
+    <meta name="twitter:title" content="Contributing — Uppy File Uploader">
+    <meta name="twitter:description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let's you worry about more important problems than building a file uploader.
+">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social.jpg">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social.jpg">
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy File Uploader" href="/atom.xml">
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto+Mono" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poiret+One:400" rel="stylesheet">
+    <script>
+      window.PAGE_TYPE = "docs"
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="page-inner">
+    <div class="page">
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <a id="logo" class="MainLogo" href="/">
+          <img class="MainLogo-img" src="/images/logos/uppy-dog-head-arrow.svg">
+          <span class="MainLogo-text">Uppy File Uploader</span>
+        </a>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+          </ul>
+        </nav>
+
+        <a href="https://github.com/transloadit/uppy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#e02177; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          
+    <div class="Sidebar js-Sidebar">
+  <ul class="main-menu">
+    <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+  </ul>
+  <div class="list">
+    <h2>
+      
+        <a href="/docs">Docs</a>
+      
+    </h2>
+    <ul class="menu-root">
+      
+        
+        
+        
+          <li>
+            <a href="/docs/" class="sidebar-link">Getting Started</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/uppy/" class="sidebar-link">Uppy</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/server/" class="sidebar-link">Uppy Server</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/stores/" class="sidebar-link">Custom Stores</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/contributing.html" class="sidebar-link current">Contributing</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/stats/" class="sidebar-link">Stats</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/plugins/">Plugins</a></h3>
+          </li>
+          <li>
+            <a href="/docs/plugins/" class="sidebar-link">List & Common Options</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/writing-plugins/" class="sidebar-link">Writing Plugins</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dashboard/" class="sidebar-link">Dashboard</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dragdrop/" class="sidebar-link">DragDrop</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/statusbar/" class="sidebar-link">StatusBar</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/progressbar/" class="sidebar-link">ProgressBar</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/informer/" class="sidebar-link">Informer</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/fileinput/" class="sidebar-link">FileInput</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/webcam/" class="sidebar-link">Webcam</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/tus/" class="sidebar-link">Tus</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/form/" class="sidebar-link">Form</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/xhrupload/" class="sidebar-link">XHRUpload</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/aws-s3/" class="sidebar-link">AwsS3</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/aws-s3-multipart/" class="sidebar-link">AwsS3Multipart</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/transloadit/" class="sidebar-link">Transloadit</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/golden-retriever/" class="sidebar-link">GoldenRetriever</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/providers/">Remote Providers</a></h3>
+          </li>
+          <li>
+            <a href="/docs/providers/" class="sidebar-link">Provider Plugins</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dropbox/" class="sidebar-link">Dropbox</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/google-drive/" class="sidebar-link">GoogleDrive</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/instagram/" class="sidebar-link">Instagram</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/url/" class="sidebar-link">Url</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/react/">React Components</a></h3>
+          </li>
+          <li>
+            <a href="/docs/react/" class="sidebar-link">Introduction</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/statusbar/" class="sidebar-link">&lt;StatusBar /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dragdrop/" class="sidebar-link">&lt;DragDrop /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/progressbar/" class="sidebar-link">&lt;ProgressBar /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dashboard/" class="sidebar-link">&lt;Dashboard /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dashboard-modal/" class="sidebar-link">&lt;DashboardModal /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/redux.html" class="sidebar-link">Redux</a>
+          </li>
+        
+      
+    </ul>
+    <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+
+<div class="Content js-Content docs with-sidebar">
+    <h1>Contributing</h1>
+    <h2 id="Uppy-Development"><a href="#Uppy-Development" class="headerlink" title="Uppy Development"></a>Uppy Development</h2><p>Fork the repository into your own account first. See the <a href="https://help.github.com/articles/fork-a-repo/" target="_blank" rel="noopener">GitHub Help</a> article for instructions.</p>
+<p>After you have successfully forked the repo, clone and install the project:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:YOUR_USERNAME/uppy.git</span><br><span class="line"><span class="built_in">cd</span> uppy</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>Our website’s examples section is also our playground, please read <a href="#Local-Previews">Local Previews</a> section to get up and running.</p>
+<h2 id="Tests"><a href="#Tests" class="headerlink" title="Tests"></a>Tests</h2><p>Unit tests are using Jest and can be run with:</p>
+<p><code>npm run test:unit</code></p>
+<p>For acceptance (or end to end) tests, we use <a href="http://webdriver.io" target="_blank" rel="noopener">Webdriverio</a>. For it to run locally, you need to install selenium standalone server, just follow <a href="http://webdriver.io/guide.html" target="_blank" rel="noopener">the guide</a> to do so. You can also install Selenium Standalone server from NPM:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install selenium-standalone -g</span><br><span class="line">selenium-standalone install</span><br></pre></td></tr></table></figure>
+<p>And then launch it:</p>
+<p><code>selenium-standalone start</code></p>
+<p>After you’ve installed and launched the selenium standalone server, run:</p>
+<p><code>npm run test:acceptance:local</code></p>
+<p>These tests are also run automatically on Travis builds with <a href="https://saucelabs.com/" target="_blank" rel="noopener">SauceLabs</a> cloud service using different OSes.</p>
+<h2 id="Website-Development"><a href="#Website-Development" class="headerlink" title="Website Development"></a>Website Development</h2><p>We keep the <a href="http://uppy.io">uppy.io</a> website in <code>./website</code> so it’s easy to keep docs &amp; code in sync as we’re still iterating at high velocity.</p>
+<p>The site is built with <a href="http://hexo.io/" target="_blank" rel="noopener">Hexo</a>, and Travis automatically deploys this onto GitHub Pages (it overwrites the <code>gh-pages</code> branch with Hexo’s build at every change to <code>master</code>). The content is written in Markdown and located in <code>./website/src</code>. Feel free to fork &amp; hack!</p>
+<p>Even though bundled in this repo, the website is regarded as a separate project. So it has its own <code>package.json</code> and we aim to keep the surface where the two projects interface as small as possible. <code>./website/update.js</code> is called during website builds to inject the Uppy knowledge into the site.</p>
+<h3 id="Local-Previews"><a href="#Local-Previews" class="headerlink" title="Local Previews"></a>Local Previews</h3><p>It’s recommended to exclude <code>./website/public/</code> from your editor if you want efficient searches.</p>
+<p>To install the required node modules, type:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install &amp;&amp; <span class="built_in">cd</span> website &amp;&amp; npm install &amp;&amp; <span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure></p>
+<p>For local previews on <a href="http://127.0.0.1:4000" target="_blank" rel="noopener">http://127.0.0.1:4000</a> type:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<p>This will watch the website, as well as Uppy, as the examples, and rebuild everything and refresh your browser as files change.</p>
+<p>Then, to work on e.g. the XHRUpload example, you’d edit the following files:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">atom src/core/Core.js \</span><br><span class="line">  src/plugins/XHRUpload.js \</span><br><span class="line">  src/plugins/Plugin.js \</span><br><span class="line">  website/src/examples/xhrupload/app.es6</span><br></pre></td></tr></table></figure>
+<p>And open <a href="http://0.0.0.0:4000/examples/xhrupload/" target="_blank" rel="noopener">http://0.0.0.0:4000/examples/xhrupload/</a> in your webbrowser.</p>
+<h2 id="CSS-Guidelines"><a href="#CSS-Guidelines" class="headerlink" title="CSS Guidelines"></a>CSS Guidelines</h2><p>The CSS standards followed in this project closely resemble those from <a href="https://gist.github.com/fat/a47b882eb5f84293c4ed" target="_blank" rel="noopener">Medium’s CSS Guidelines</a>. If it’s not mentioned here, follow their guidelines.</p>
+<h3 id="Naming-Conventions"><a href="#Naming-Conventions" class="headerlink" title="Naming Conventions"></a>Naming Conventions</h3><p>This project uses naming conventions adopted from the SUIT CSS framework.<br><a href="https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md" target="_blank" rel="noopener">Read about them here</a>.</p>
+<p>To quickly summarize:</p>
+<h4 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a>Utilities</h4><p>Syntax: u-[sm-|md-|lg-]<utilityname></utilityname></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.u-utilityName</span></span><br><span class="line"><span class="selector-class">.u-floatLeft</span></span><br><span class="line"><span class="selector-class">.u-lg-col6</span></span><br></pre></td></tr></table></figure>
+<h4 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h4><p>Syntax: [<namespace>-]<componentname>[-descendentName][–modifierName]</componentname></namespace></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.twt-Button</span> <span class="comment">/* Namespaced component */</span></span><br><span class="line"><span class="selector-class">.MyComponent</span> <span class="comment">/* Components pascal cased */</span></span><br><span class="line"><span class="selector-class">.Button--default</span> <span class="comment">/* Modified button style */</span></span><br><span class="line"><span class="selector-class">.Button--large</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.Tweet</span></span><br><span class="line"><span class="selector-class">.Tweet-header</span> <span class="comment">/* Descendents */</span></span><br><span class="line"><span class="selector-class">.Tweet-bodyText</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.Accordion</span><span class="selector-class">.is-collapsed</span> <span class="comment">/* State of component */</span></span><br><span class="line"><span class="selector-class">.Accordion</span><span class="selector-class">.is-expanded</span></span><br></pre></td></tr></table></figure>
+<h3 id="SASS"><a href="#SASS" class="headerlink" title="SASS"></a>SASS</h3><p>This project uses SASS, with some limitations on nesting.  One-level deep nesting is allowed, but nesting may not extend a selector by using the <code>&amp;</code> operator.  For example:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/* BAD */</span><br><span class="line">.Button &#123;</span><br><span class="line">  &amp;--disabled &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* GOOD */</span><br><span class="line">.Button &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.Button--disabled &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Mobile-first-Responsive-Approach"><a href="#Mobile-first-Responsive-Approach" class="headerlink" title="Mobile-first Responsive Approach"></a>Mobile-first Responsive Approach</h3><p>Style to the mobile breakpoint with your selectors, then use <code>min-width</code> media queries to add any styles to the tablet or desktop breakpoints.</p>
+<h3 id="Selector-Rule-Ordering"><a href="#Selector-Rule-Ordering" class="headerlink" title="Selector, Rule Ordering"></a>Selector, Rule Ordering</h3><ul>
+<li>All selectors are sorted alphabetically and by type.</li>
+<li>HTML elements go above classes and IDs in a file.</li>
+<li>Rules are sorted alphabetically.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/* BAD */</span><br><span class="line">.wrapper &#123;</span><br><span class="line">  width: 940px;</span><br><span class="line">  margin: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">h1 &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.article &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">  padding: 32px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* GOOD */</span><br><span class="line">h1 &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.article &#123;</span><br><span class="line">  padding: 32px;</span><br><span class="line">  width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper &#123;</span><br><span class="line">  margin: auto;</span><br><span class="line">  width: 940px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+    <div class="footer">Caught a mistake or want to contribute to the documentation?
+       <a href="https://github.com/transloadit/uppy/blob/master/website/src/docs/contributing.md" rel="noreferrer noopener" target="_blank">Edit/fork this page directly on Github</a>!
+    </div>
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

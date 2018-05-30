@@ -1,0 +1,503 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Writing Plugins — Uppy File Uploader</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Writing Plugins — Uppy File Uploader">
+    <meta name="description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let&#39;s you worry about more important problems than building a file uploader.
+">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/docs/writing-plugins/index.html">
+    <meta property="og:title" content="Writing Plugins — Uppy File Uploader">
+    <meta name="twitter:title" content="Writing Plugins — Uppy File Uploader">
+    <meta name="twitter:description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let's you worry about more important problems than building a file uploader.
+">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social.jpg">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social.jpg">
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy File Uploader" href="/atom.xml">
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto+Mono" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poiret+One:400" rel="stylesheet">
+    <script>
+      window.PAGE_TYPE = "docs"
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="page-inner">
+    <div class="page">
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <a id="logo" class="MainLogo" href="/">
+          <img class="MainLogo-img" src="/images/logos/uppy-dog-head-arrow.svg">
+          <span class="MainLogo-text">Uppy File Uploader</span>
+        </a>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+          </ul>
+        </nav>
+
+        <a href="https://github.com/transloadit/uppy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#e02177; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          
+    <div class="Sidebar js-Sidebar">
+  <ul class="main-menu">
+    <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+  </ul>
+  <div class="list">
+    <h2>
+      
+        <a href="/docs">Docs</a>
+      
+    </h2>
+    <ul class="menu-root">
+      
+        
+        
+        
+          <li>
+            <a href="/docs/" class="sidebar-link">Getting Started</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/uppy/" class="sidebar-link">Uppy</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/server/" class="sidebar-link">Uppy Server</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/stores/" class="sidebar-link">Custom Stores</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/contributing.html" class="sidebar-link">Contributing</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/stats/" class="sidebar-link">Stats</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/plugins/">Plugins</a></h3>
+          </li>
+          <li>
+            <a href="/docs/plugins/" class="sidebar-link">List & Common Options</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/writing-plugins/" class="sidebar-link current">Writing Plugins</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dashboard/" class="sidebar-link">Dashboard</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dragdrop/" class="sidebar-link">DragDrop</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/statusbar/" class="sidebar-link">StatusBar</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/progressbar/" class="sidebar-link">ProgressBar</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/informer/" class="sidebar-link">Informer</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/fileinput/" class="sidebar-link">FileInput</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/webcam/" class="sidebar-link">Webcam</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/tus/" class="sidebar-link">Tus</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/form/" class="sidebar-link">Form</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/xhrupload/" class="sidebar-link">XHRUpload</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/aws-s3/" class="sidebar-link">AwsS3</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/aws-s3-multipart/" class="sidebar-link">AwsS3Multipart</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/transloadit/" class="sidebar-link">Transloadit</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/golden-retriever/" class="sidebar-link">GoldenRetriever</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/providers/">Remote Providers</a></h3>
+          </li>
+          <li>
+            <a href="/docs/providers/" class="sidebar-link">Provider Plugins</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dropbox/" class="sidebar-link">Dropbox</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/google-drive/" class="sidebar-link">GoogleDrive</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/instagram/" class="sidebar-link">Instagram</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/url/" class="sidebar-link">Url</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/react/">React Components</a></h3>
+          </li>
+          <li>
+            <a href="/docs/react/" class="sidebar-link">Introduction</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/statusbar/" class="sidebar-link">&lt;StatusBar /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dragdrop/" class="sidebar-link">&lt;DragDrop /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/progressbar/" class="sidebar-link">&lt;ProgressBar /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dashboard/" class="sidebar-link">&lt;Dashboard /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dashboard-modal/" class="sidebar-link">&lt;DashboardModal /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/redux.html" class="sidebar-link">Redux</a>
+          </li>
+        
+      
+    </ul>
+    <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+
+<div class="Content js-Content docs with-sidebar">
+    <h1>Writing Plugins</h1>
+    <p>There are a few useful Uppy plugins out there, but there might come a time when you’ll want to build your own.<br>Plugins can hook into the upload process or render a custom UI, typically to:</p>
+<ul>
+<li>Render some custom UI element, e.g. <a href="/docs/statusbar">StatusBar</a> or <a href="/docs/dashboard">Dashboard</a>.</li>
+<li>Do the actual uploading, e.g. <a href="/docs/xhrupload">XHRUpload</a> or <a href="/docs/tus">Tus</a>.</li>
+<li>Interact with a third party service to process uploads correctly, e.g. <a href="/docs/transloadit">Transloadit</a> or <a href="/docs/aws-s3">AwsS3</a>.</li>
+</ul>
+<h2 id="Creating-A-Plugin"><a href="#Creating-A-Plugin" class="headerlink" title="Creating A Plugin"></a>Creating A Plugin</h2><p>Plugins are classes that extend from Uppy’s <code>Plugin</code> class. Each plugin has an <code>id</code> and a <code>type</code>. <code>id</code>s are used to uniquely identify plugins. A <code>type</code> can be anything—some plugins use <code>type</code>s to determine whether to do something to some other plugin. For example, when targeting plugins at the builtin <code>Dashboard</code> plugin, the Dashboard uses the <code>type</code> to figure out where to mount different UI elements. <code>&#39;acquirer&#39;</code> type plugins are mounted into the tab bar, while <code>&#39;progressindicator&#39;</code> type plugins are mounted into the progress bar area.</p>
+<p>The plugin constructor receives the Uppy instance in the first parameter, and any options passed to <code>uppy.use()</code> in the second parameter.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Plugin = <span class="built_in">require</span>(<span class="string">'uppy/lib/plugins/Plugin'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">MyPlugin</span> <span class="keyword">extends</span> <span class="title">Plugin</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (uppy, opts) &#123;</span><br><span class="line">    <span class="keyword">super</span>(uppy, opts)</span><br><span class="line">    <span class="keyword">this</span>.id = opts.id || <span class="string">'MyPlugin'</span></span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">'example'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><p>Plugins can implement methods in order to execute certain tasks. The most important method is <code>install()</code>, which is called when a plugin is <code>.use</code>d.</p>
+<p>All of the below methods are optional! Only implement the methods you need.</p>
+<h3 id="install"><a href="#install" class="headerlink" title="install()"></a><code>install()</code></h3><p>Called when the plugin is <code>.use</code>d. Do any setup work here, like attaching events or adding <a href="#Upload-Hooks">upload hooks</a>.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">install () &#123;</span><br><span class="line">  <span class="keyword">this</span>.uppy.on(<span class="string">'upload-progress'</span>, <span class="keyword">this</span>.onProgress)</span><br><span class="line">  <span class="keyword">this</span>.uppy.addPostProcessor(<span class="keyword">this</span>.afterUpload)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="uninstall"><a href="#uninstall" class="headerlink" title="uninstall()"></a><code>uninstall()</code></h3><p>Called when the plugin is removed, or the Uppy instance is closed. This should undo all of the work done in the <code>install()</code> method.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uninstall () &#123;</span><br><span class="line">  <span class="keyword">this</span>.uppy.off(<span class="string">'upload-progress'</span>, <span class="keyword">this</span>.onProgress)</span><br><span class="line">  <span class="keyword">this</span>.uppy.removePostProcessor(<span class="keyword">this</span>.afterUpload)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="update-state"><a href="#update-state" class="headerlink" title="update(state)"></a><code>update(state)</code></h3><p>Called on each state update. It’s rare that you’d need to use this, it’s mostly handy if you want to build a UI plugin using something other than preact.</p>
+<h2 id="Upload-Hooks"><a href="#Upload-Hooks" class="headerlink" title="Upload Hooks"></a>Upload Hooks</h2><p>When creating an upload, Uppy runs files through an upload pipeline. The pipeline consists of three parts, each of which can be hooked into: Preprocessing, Uploading, and Postprocessing. Preprocessors can be used to configure uploader plugins, encrypt files, resize images, etc., before uploading them. Uploaders do the actual uploading work, such as creating an XMLHttpRequest object and sending the file. Postprocessors do work after files have been uploaded completely. This could be anything from waiting for a file to propagate across a CDN, to sending another request to relate some metadata to the file.</p>
+<p>Each hook is a function that receives an array containing the file IDs that are being uploaded, and returns a Promise to signal completion. Hooks are added and removed through <code>Uppy</code> methods: <code>addPreProcessor</code>, <code>addUploader</code>, <code>addPostProcessor</code>, and their <code>remove*</code> counterparts. Normally, hooks should be added during the plugin’s <code>install()</code> method, and removed during the <code>uninstall()</code> method.</p>
+<p>Additionally, upload hooks can fire events to signal progress.</p>
+<p>When adding hooks, make sure to bind the hook <code>fn</code> beforehand! Otherwise it will be impossible to remove. For example:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyPlugin</span> <span class="keyword">extends</span> <span class="title">Plugin</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (uppy, opts) &#123;</span><br><span class="line">    <span class="keyword">super</span>(uppy, opts)</span><br><span class="line">    <span class="keyword">this</span>.id = opts.id || <span class="string">'MyPlugin'</span></span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">'example'</span></span><br><span class="line">    <span class="keyword">this</span>.prepareUpload = <span class="keyword">this</span>.prepareUpload.bind(<span class="keyword">this</span>) <span class="comment">// ← this!</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  prepareUpload (fileIDs) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  install () &#123;</span><br><span class="line">    <span class="keyword">this</span>.uppy.addPreProcessor(<span class="keyword">this</span>.prepareUpload)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  uninstall () &#123;</span><br><span class="line">    <span class="keyword">this</span>.uppy.removePreProcessor(<span class="keyword">this</span>.prepareUpload)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="addPreProcessor-fn"><a href="#addPreProcessor-fn" class="headerlink" title="addPreProcessor(fn)"></a><code>addPreProcessor(fn)</code></h3><p>Add a preprocessing function. <code>fn</code> gets called with a list of file IDs before an upload starts. <code>fn</code> should return a Promise. Its resolution value is ignored. To change file data and such, use Uppy state updates, for example using <a href="/docs/uppy#uppy-setFileState-fileID-state"><code>setFileState</code></a>.</p>
+<h3 id="addUploader-fn"><a href="#addUploader-fn" class="headerlink" title="addUploader(fn)"></a><code>addUploader(fn)</code></h3><p>Add an uploader function. <code>fn</code> gets called with a list of file IDs when an upload should start. Uploader functions should do the actual uploading work, such as creating and sending an XMLHttpRequest or calling into some upload service’s SDK. <code>fn</code> should return a Promise that resolves once all files have been uploaded.</p>
+<p>You may choose to still resolve the Promise if some file uploads fail. This way any postprocessing will still run on the files that were uploaded successfully, while uploads that failed will be retried when <code>uppy.retryAll</code> is called.</p>
+<h3 id="addPostProcessor-fn"><a href="#addPostProcessor-fn" class="headerlink" title="addPostProcessor(fn)"></a><code>addPostProcessor(fn)</code></h3><p>Add a postprocessing function. <code>fn</code> is called with a list of file IDs when an upload has finished. <code>fn</code> should return a Promise that resolves when the processing work is complete. Again, the resolution value of the Promise is ignored. This hook can be used to do any finishing work. For example, you could wait for file encoding or CDN propagation to complete, or you could do an HTTP API call to create an album containing all images that were just uploaded.</p>
+<h3 id="removePreProcessor-removeUploader-removePostProcessor-fn"><a href="#removePreProcessor-removeUploader-removePostProcessor-fn" class="headerlink" title="removePreProcessor/removeUploader/removePostProcessor(fn)"></a><code>removePreProcessor/removeUploader/removePostProcessor(fn)</code></h3><p>Remove a processor or uploader function that was added previously. Normally this should be done in the <code>uninstall()</code> method.</p>
+<h2 id="Progress-Events"><a href="#Progress-Events" class="headerlink" title="Progress Events"></a>Progress Events</h2><p>Progress events can be fired for individual files to show feedback to the user. For upload progress events, only emitting how many bytes are expected and how many have been uploaded is enough. Uppy will handle calculating progress percentages, upload speed, etc.</p>
+<p>Preprocessing and postprocessing progress events are plugin-dependent and can refer to anything, so Uppy doesn’t try to be smart about them. There are two types of processing progress events: determinate and indeterminate. Some processing does not have meaningful progress beyond “not done” and “done”. For example, sending a request to initialize a server-side resource that will be uploaded to. In those situations, indeterminate progress is suitable. Other processing does have meaningful progress. For example, encrypting a large file. In those situations, determinate progress is suitable.</p>
+<h3 id="preprocess-progress-fileID-progress"><a href="#preprocess-progress-fileID-progress" class="headerlink" title="preprocess-progress(fileID, progress)"></a><code>preprocess-progress(fileID, progress)</code></h3><p><code>progress</code> is an object with properties:</p>
+<ul>
+<li><code>mode</code> - Either <code>&#39;determinate&#39;</code> or <code>&#39;indeterminate&#39;</code>.</li>
+<li><code>message</code> - A message to show to the user. Something like <code>&#39;Preparing upload...&#39;</code>, but be more specific if possible.</li>
+</ul>
+<p>When <code>mode</code> is <code>&#39;determinate&#39;</code>, also add the <code>value</code> property:</p>
+<ul>
+<li><code>value</code> - A progress value between 0 and 1.</li>
+</ul>
+<h3 id="upload-progress-progress"><a href="#upload-progress-progress" class="headerlink" title="upload-progress(progress)"></a><code>upload-progress(progress)</code></h3><p><code>progress</code> is an object with properties:</p>
+<ul>
+<li><code>uploader</code> - The uploader plugin that fired the event (<code>this</code>).</li>
+<li><code>id</code> - The file ID.</li>
+<li><code>bytesTotal</code> - The full amount of bytes to be uploaded.</li>
+<li><code>bytesUploaded</code> - The amount of bytes that have been uploaded so far.</li>
+</ul>
+<h3 id="postprocess-progress-fileID-progress"><a href="#postprocess-progress-fileID-progress" class="headerlink" title="postprocess-progress(fileID, progress)"></a><code>postprocess-progress(fileID, progress)</code></h3><p><code>progress</code> is an object with properties:</p>
+<ul>
+<li><code>mode</code> - Either <code>&#39;determinate&#39;</code> or <code>&#39;indeterminate&#39;</code>.</li>
+<li><code>message</code> - A message to show to the user. Something like <code>&#39;Preparing upload...&#39;</code>, but be more specific if possible.</li>
+</ul>
+<p>When <code>mode</code> is <code>&#39;determinate&#39;</code>, also add the <code>value</code> property:</p>
+<ul>
+<li><code>value</code> - A progress value between 0 and 1.</li>
+</ul>
+<h2 id="UI-Plugins"><a href="#UI-Plugins" class="headerlink" title="UI Plugins"></a>UI Plugins</h2><p>UI Plugins can be used to show a user interface. Uppy plugins use <a href="https://preactjs.com" target="_blank" rel="noopener">preact</a> for rendering. preact is a very small React-like library that works really well with Uppy’s state architecture. Uppy implements preact rendering in the <code>mount(target)</code> and <code>update()</code> plugin methods, so if you want to write a custom UI plugin using some other library, you can override those methods.</p>
+<p>Plugins can implement certain methods to do so, that will be called by Uppy when necessary:</p>
+<h3 id="mount-target"><a href="#mount-target" class="headerlink" title="mount(target)"></a><code>mount(target)</code></h3><p>Mount this plugin to the <code>target</code> element. <code>target</code> can be a CSS query selector, a DOM element, or another Plugin. If <code>target</code> is a Plugin, the source (current) plugin will register with the target plugin, and the latter can decide how and where to render the source plugin.</p>
+<p>This method can be overridden to support for different render engines.</p>
+<h3 id="render"><a href="#render" class="headerlink" title="render()"></a><code>render()</code></h3><p>Render this plugin’s UI. Uppy uses <a href="https://preactjs.com" target="_blank" rel="noopener">preact</a> as its view engine, so <code>render()</code> should return a preact element.<br><code>render</code> is automatically called by Uppy on each state change.</p>
+<p>Note that we are looking into ways to make Uppy render engine agnostic, so that plugins can choose their own favourite library—whether it’s preact, choo, jQuery, or anything else. This means that the <code>render()</code> API may change in the future, but we’ll detail exactly what you need to do on the <a href="https://uppy.io/blog">blog</a> if and when that happens.</p>
+<h3 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h3><p>Since Uppy uses Preact and not React, the default Babel configuration for JSX elements does not work. You have to import the preact <code>h</code> function and tell Babel to use it by adding a <code>/** @jsx h */</code> comment at the top of the file.</p>
+<p>See the Preact <a href="https://preactjs.com/guide/getting-started" target="_blank" rel="noopener">Getting Started Guide</a> for more on Babel and JSX.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** @jsx h */</span></span><br><span class="line"><span class="keyword">const</span> Plugin = <span class="built_in">require</span>(<span class="string">'uppy/lib/core/Plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; h &#125; = <span class="built_in">require</span>(<span class="string">'preact'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NumFiles</span> <span class="keyword">extends</span> <span class="title">Plugin</span> </span>&#123;</span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">const</span> numFiles = <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.uppy.state.files).length</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        <span class="built_in">Number</span> <span class="keyword">of</span> files: &#123;numFiles&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+    
+    <div class="footer">Caught a mistake or want to contribute to the documentation?
+       <a href="https://github.com/transloadit/uppy/blob/master/website/src/docs/writing-plugins.md" rel="noreferrer noopener" target="_blank">Edit/fork this page directly on Github</a>!
+    </div>
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

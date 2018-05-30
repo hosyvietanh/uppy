@@ -1,0 +1,481 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Custom Stores — Uppy File Uploader</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Custom Stores — Uppy File Uploader">
+    <meta name="description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let&#39;s you worry about more important problems than building a file uploader.
+">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/docs/stores/index.html">
+    <meta property="og:title" content="Custom Stores — Uppy File Uploader">
+    <meta name="twitter:title" content="Custom Stores — Uppy File Uploader">
+    <meta name="twitter:description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let's you worry about more important problems than building a file uploader.
+">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social.jpg">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social.jpg">
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy File Uploader" href="/atom.xml">
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto+Mono" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poiret+One:400" rel="stylesheet">
+    <script>
+      window.PAGE_TYPE = "docs"
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="page-inner">
+    <div class="page">
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <a id="logo" class="MainLogo" href="/">
+          <img class="MainLogo-img" src="/images/logos/uppy-dog-head-arrow.svg">
+          <span class="MainLogo-text">Uppy File Uploader</span>
+        </a>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+          </ul>
+        </nav>
+
+        <a href="https://github.com/transloadit/uppy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#e02177; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          
+    <div class="Sidebar js-Sidebar">
+  <ul class="main-menu">
+    <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+  </ul>
+  <div class="list">
+    <h2>
+      
+        <a href="/docs">Docs</a>
+      
+    </h2>
+    <ul class="menu-root">
+      
+        
+        
+        
+          <li>
+            <a href="/docs/" class="sidebar-link">Getting Started</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/uppy/" class="sidebar-link">Uppy</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/server/" class="sidebar-link">Uppy Server</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/stores/" class="sidebar-link current">Custom Stores</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/contributing.html" class="sidebar-link">Contributing</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/stats/" class="sidebar-link">Stats</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/plugins/">Plugins</a></h3>
+          </li>
+          <li>
+            <a href="/docs/plugins/" class="sidebar-link">List & Common Options</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/writing-plugins/" class="sidebar-link">Writing Plugins</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dashboard/" class="sidebar-link">Dashboard</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dragdrop/" class="sidebar-link">DragDrop</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/statusbar/" class="sidebar-link">StatusBar</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/progressbar/" class="sidebar-link">ProgressBar</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/informer/" class="sidebar-link">Informer</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/fileinput/" class="sidebar-link">FileInput</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/webcam/" class="sidebar-link">Webcam</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/tus/" class="sidebar-link">Tus</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/form/" class="sidebar-link">Form</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/xhrupload/" class="sidebar-link">XHRUpload</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/aws-s3/" class="sidebar-link">AwsS3</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/aws-s3-multipart/" class="sidebar-link">AwsS3Multipart</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/transloadit/" class="sidebar-link">Transloadit</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/golden-retriever/" class="sidebar-link">GoldenRetriever</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/providers/">Remote Providers</a></h3>
+          </li>
+          <li>
+            <a href="/docs/providers/" class="sidebar-link">Provider Plugins</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dropbox/" class="sidebar-link">Dropbox</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/google-drive/" class="sidebar-link">GoogleDrive</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/instagram/" class="sidebar-link">Instagram</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/url/" class="sidebar-link">Url</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/react/">React Components</a></h3>
+          </li>
+          <li>
+            <a href="/docs/react/" class="sidebar-link">Introduction</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/statusbar/" class="sidebar-link">&lt;StatusBar /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dragdrop/" class="sidebar-link">&lt;DragDrop /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/progressbar/" class="sidebar-link">&lt;ProgressBar /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dashboard/" class="sidebar-link">&lt;Dashboard /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dashboard-modal/" class="sidebar-link">&lt;DashboardModal /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/redux.html" class="sidebar-link">Redux</a>
+          </li>
+        
+      
+    </ul>
+    <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+
+<div class="Content js-Content docs with-sidebar">
+    <h1>Custom Stores</h1>
+    <blockquote>
+<p>This section is about storing internal application state, if you work with React/Redux, for example. If none of this rings a bell, you can safely skip this section.</p>
+</blockquote>
+<p>By default, Uppy stores its internal state in an object.</p>
+<p>If your app uses a state management library such as <a href="https://redux.js.org" target="_blank" rel="noopener">Redux</a>, it can be useful to have Uppy store its state there instead—that way, you could write custom uploader UI components in the same way as the other components in the application.</p>
+<p>Uppy comes with two state management solutions (stores):</p>
+<ul>
+<li><code>DefaultStore</code>, a simple object-based store.</li>
+<li><code>ReduxStore</code>, a store that uses a key in a Redux store.</li>
+</ul>
+<p>There are also some third party stores:</p>
+<ul>
+<li><a href="https://github.com/rimlin/uppy-store-ngrx/" target="_blank" rel="noopener">uppy-store-ngrx</a>, keeping Uppy state in a key in an <a href="https://github.com/ngrx/platform" target="_blank" rel="noopener">Ngrx</a> store for use with Angular.</li>
+</ul>
+<h2 id="Using-Stores"><a href="#Using-Stores" class="headerlink" title="Using Stores"></a>Using Stores</h2><p>To use a store, pass an instance to the <a href="/docs/uppy#store-defaultstore"><code>store</code> option</a> in the Uppy constructor:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultStore = <span class="built_in">require</span>(<span class="string">'uppy/lib/store/DefaultStore'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> uppy = Uppy(&#123;</span><br><span class="line">  store: defaultStore()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="DefaultStore"><a href="#DefaultStore" class="headerlink" title="DefaultStore"></a><code>DefaultStore</code></h3><p>Uppy uses the <code>DefaultStore</code>…by default! You do not need to do anything to use it.<br>It does not take any options.</p>
+<h3 id="ReduxStore"><a href="#ReduxStore" class="headerlink" title="ReduxStore"></a><code>ReduxStore</code></h3><p>The <code>ReduxStore</code> stores Uppy state on a key in an existing Redux store.<br>The <code>ReduxStore</code> dispatches <code>uppy/STATE_UPDATE</code> actions to update state.<br>When the state in Redux changes, it notifies Uppy.<br>This way, you get most of the benefits of Redux, including support for the Redux Devtools and time traveling!</p>
+<p>To use the <code>ReduxStore</code>, add its reducer to the <code>uppy</code> key:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> ReduxStore = <span class="built_in">require</span>(<span class="string">'uppy/lib/store/ReduxStore'</span>)</span><br><span class="line"><span class="keyword">const</span> reducer = combineReducers(&#123;</span><br><span class="line">  ...reducers,</span><br><span class="line">  uppy: ReduxStore.reducer</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Then pass a Redux store instance to the Uppy constructor:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; createStore &#125; = <span class="built_in">require</span>(<span class="string">'redux'</span>)</span><br><span class="line"><span class="keyword">const</span> ReduxStore = <span class="built_in">require</span>(<span class="string">'uppy/lib/store/ReduxStore'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer)</span><br><span class="line"><span class="keyword">const</span> uppy = Uppy(&#123;</span><br><span class="line">  store: ReduxStore(&#123;</span><br><span class="line">    store: store <span class="comment">// That's a lot of stores!</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="opts-store"><a href="#opts-store" class="headerlink" title="opts.store"></a><code>opts.store</code></h4><p>Pass a Redux store instance, from <code>Redux.createStore</code>.<br>This instance should have the Uppy reducer mounted somewhere already.</p>
+<h4 id="opts-id"><a href="#opts-id" class="headerlink" title="opts.id"></a><code>opts.id</code></h4><p>By default, the <code>ReduxStore</code> assumes Uppy state is stored on a <code>state.uppy[id]</code> key.<br><code>id</code> is randomly generated by the store constructor, but can be specified by passing an <code>id</code> option if it should be predictable.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">ReduxStore(&#123;</span><br><span class="line">  store: store,</span><br><span class="line">  id: <span class="string">'avatarUpload'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="opts-selector"><a href="#opts-selector" class="headerlink" title="opts.selector"></a><code>opts.selector</code></h4><p>If you’d rather not store the Uppy state under the <code>state.uppy</code> key at all, use the <code>selector</code> option to the <code>ReduxStore</code> constructor to tell it where to find state instead:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> uppy = Uppy(&#123;</span><br><span class="line">  store: ReduxStore(&#123;</span><br><span class="line">    store: store,</span><br><span class="line">    selector: <span class="function"><span class="params">state</span> =&gt;</span> state.pages.profile.uppy.avatarUpload</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>If your app uses <a href="https://npmjs.com/package/reselect" target="_blank" rel="noopener"><code>reselect</code></a>, its selectors work very well with this!</p>
+<h2 id="Implementing-Stores"><a href="#Implementing-Stores" class="headerlink" title="Implementing Stores"></a>Implementing Stores</h2><p>An Uppy store is an object with three methods.</p>
+<ul>
+<li><code>getState()</code> - Return the current state object.</li>
+<li><code>setState(patch)</code> - Merge the object <code>patch</code> into the current state.</li>
+<li><p><code>subscribe(listener)</code> - Call <code>listener</code> whenever the state changes.<br><code>listener</code> is a function that should receive three parameters:<br><code>(prevState, nextState, patch)</code></p>
+<p>The <code>subscribe()</code> method should return a function that ‘unsubscribes’ (removes) the <code>listener</code>.</p>
+</li>
+</ul>
+<p>The default store implementation, for example, looks a bit like this:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defaultStore</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> state = &#123;&#125;</span><br><span class="line">  <span class="keyword">const</span> listeners = <span class="keyword">new</span> <span class="built_in">Set</span>()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getState: <span class="function"><span class="params">()</span> =&gt;</span> state,</span><br><span class="line">    setState: <span class="function">(<span class="params">patch</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> prevState = state</span><br><span class="line">      <span class="keyword">const</span> nextState = <span class="built_in">Object</span>.assign(&#123;&#125;, prevState, patch)</span><br><span class="line"></span><br><span class="line">      state = nextState</span><br><span class="line"></span><br><span class="line">      listeners.forEach(<span class="function">(<span class="params">listener</span>) =&gt;</span> &#123;</span><br><span class="line">        listener(prevState, nextState, patch)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    subscribe: <span class="function">(<span class="params">listener</span>) =&gt;</span> &#123;</span><br><span class="line">      listeners.add(listener)</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> listeners.remove(listener)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>A pattern like this, where users can pass options via a function call if necessary, is recommended.</p>
+<p>See the <a href="https://github.com/transloadit/uppy/tree/master/src/store" target="_blank" rel="noopener">./src/store</a> folder in the repository for more inspiration.</p>
+
+    
+    <div class="footer">Caught a mistake or want to contribute to the documentation?
+       <a href="https://github.com/transloadit/uppy/blob/master/website/src/docs/stores.md" rel="noreferrer noopener" target="_blank">Edit/fork this page directly on Github</a>!
+    </div>
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

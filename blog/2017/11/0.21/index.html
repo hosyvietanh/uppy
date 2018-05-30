@@ -1,0 +1,286 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Uppy 0.21: End to End Tests, Accessibility, Additional Security for Uppy Server — Uppy File Uploader</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Uppy 0.21: End to End Tests, Accessibility, Additional Security for Uppy Server — Uppy File Uploader">
+    <meta name="description" content="Hi all! We’ve been busy with Halloween, but also another release, so here is Uppy 0.21! This one improves accessibility, features new end-to-end tests and improved security in Uppy Server.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/blog/2017/11/0.21/index.html">
+    <meta property="og:title" content="Uppy 0.21: End to End Tests, Accessibility, Additional Security for Uppy Server — Uppy File Uploader">
+    <meta name="twitter:title" content="Uppy 0.21: End to End Tests, Accessibility, Additional Security for Uppy Server — Uppy File Uploader">
+    <meta name="twitter:description" content="Hi all! We’ve been busy with Halloween, but also another release, so here is Uppy 0.21! This one improves accessibility, features new end-to-end tests and improved security in Uppy Server.">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social.jpg">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social.jpg">
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy File Uploader" href="/atom.xml">
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto+Mono" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poiret+One:400" rel="stylesheet">
+    <script>
+      window.PAGE_TYPE = ""
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="page-inner">
+    <div class="page">
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <a id="logo" class="MainLogo" href="/">
+          <img class="MainLogo-img" src="/images/logos/uppy-dog-head-arrow.svg">
+          <span class="MainLogo-text">Uppy File Uploader</span>
+        </a>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+          </ul>
+        </nav>
+
+        <a href="https://github.com/transloadit/uppy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#e02177; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          <div class="Sidebar js-Sidebar is-blog">
+    <ul class="main-menu">
+        <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+    </ul>
+    <div class="list">
+        <h2>
+            Recent Posts
+            <a href="/atom.xml" rel="noreferrer noopener" target="_blank" style="vertical-align: middle; margin-left: 5px">
+                <img src="/images/feed.png" style="width:15px;height:15px">
+            </a>
+        </h2>
+        <ul>
+        
+            <li>
+                <a href="/blog/2018/04/0.24/" class="sidebar-link">Uppy 0.24: Refreshed Dashboard, StatusBar and Provider UI, revamped XHR Response Handling</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2018/02/0.23/" class="sidebar-link">Uppy 0.23: Import from Url, refactored thumbnail generation, XHR bundle</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/12/0.22/" class="sidebar-link">Uppy 0.22: Preact, Form, Improved Dashboard, Custom Stores</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/11/0.21/" class="sidebar-link current">Uppy 0.21: End to End Tests, Accessibility, Additional Security for Uppy Server</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/10/0.20/" class="sidebar-link">Uppy 0.20: React, Retry & Time Travel</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/09/0.19/" class="sidebar-link">Uppy 0.19: Tests, Informer details and better APIs</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/09/0.18/" class="sidebar-link">Uppy 0.18: Dogumentation and The GoldenRetriever</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/07/golden-retriever/" class="sidebar-link">The Golden Retriever: Making uploads survive browser crashes</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/07/0.17/" class="sidebar-link">Uppy 0.17: Restrictions</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/05/0.16/" class="sidebar-link">Uppy 0.16: Transloadit!</a>
+            </li>
+        
+        </ul>
+        <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+    </div>
+</div>
+
+<div class="Content js-Content with-sidebar">
+  <h1>Uppy 0.21: End to End Tests, Accessibility, Additional Security for Uppy Server</h1>
+  <h4>Nov 24, 2017</h4>
+  <p>Hi all! We’ve been busy with Halloween, but also another release, so here is Uppy <code>0.21</code>! This one improves accessibility, features new end-to-end tests and improved security in Uppy Server.</p>
+<a id="more"></a>
+<h2 id="Accessibility"><a href="#Accessibility" class="headerlink" title="Accessibility"></a>Accessibility</h2><p>One of the goals we’ve set out to achieve with Uppy was to make an accessibe file upload widget, and in this release we’ve achieved some more progress in this area:</p>
+<ul>
+<li>Dashboard modal dialog now handles focus better (it’s trapped inside the modal while open);</li>
+<li>First button is in focus right after the modal dialog is open;</li>
+<li>More (aria-)labels have been added;</li>
+<li>Files from remote providers are now selectable with a keyboard.</li>
+</ul>
+<p>We plan to continue gradually improving in the accessibility area.</p>
+<p>See <a href="https://github.com/transloadit/uppy/pull/414" target="_blank" rel="noopener">#414 PR</a> for details.</p>
+<h2 id="Returning-successful-failed-from-uppy-upload"><a href="#Returning-successful-failed-from-uppy-upload" class="headerlink" title="Returning { successful, failed } from uppy.upload()"></a>Returning <code>{ successful, failed }</code> from <code>uppy.upload()</code></h2><p><strong>⚠️ Breaking change</strong></p>
+<p><code>uppy.upload()</code> promise now resolves to a <code>result</code> object with two arrays of files: <code>{ successful, failed }</code>. This lets you handle succesful and failed uploads in one go:  </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.upload().then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.info(<span class="string">'Successful uploads:'</span>, result.successful)</span><br><span class="line">  <span class="keyword">if</span> (result.failed.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'Errors:'</span>)</span><br><span class="line">    result.failed.forEach(<span class="function">(<span class="params">file</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(file.error)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"></span><br><span class="line">uppy.on(<span class="string">'core:complete'</span>, (&#123; successful, failed &#125;) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (failed.length === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'UPLOAD SUCCESSFUL!!!'</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.warn(<span class="string">'UPLOAD FAILED!!!'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'successful files:'</span>, successful)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'failed files:'</span>, failed)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>See <a href="https://uppy.io/docs/uppy/#uppy-upload"><code>uppy.upload()</code></a> and <a href="https://uppy.io/docs/uppy/#core-complete"><code>core:complete</code></a> in docs, as well as <a href="https://github.com/transloadit/uppy/pull/404" target="_blank" rel="noopener">#404 PR</a> for more details.</p>
+<h2 id="End-to-end-tests"><a href="#End-to-end-tests" class="headerlink" title="End to end tests"></a>End to end tests</h2><p>We’ve refactored end to end tests to use <a href="http://webdriver.io" target="_blank" rel="noopener">Webdriver.io</a>, and for the occasion added tests for Edge, Safari, Android and iOS. Now tests on Travis and Sauce Labs (thanks for the open source tier!) run smoothly and it’s easier to alter them or write new ones.</p>
+<h2 id="More-secure-Uppy-Server"><a href="#More-secure-Uppy-Server" class="headerlink" title="More secure Uppy Server"></a>More secure Uppy Server</h2><p>We made sure access tokens from third-party providers, such as Google Drive or Instagram, are not stored on the server with Uppy Server, and kept in your browser instead. Then, when you want to pick a file from your Instagram, the token is used to make a request. Even though they live on the browser, these tokens are encrypted with JWT on the server side, before they are being sent to the client. So they can only be decrypted and understood on the server side.</p>
+<p>Data validation is also now done during intiation of an upload, to prevent corrupt data from triggering funny behaviours on the server. :)</p>
+<p>And, while we were at this, we also made sure all sensitive data is masked in request logs.</p>
+<h2 id="Migration-to-Dropbox-v2-API"><a href="#Migration-to-Dropbox-v2-API" class="headerlink" title="Migration to Dropbox v2 API"></a>Migration to Dropbox v2 API</h2><p>Since the <a href="https://blogs.dropbox.com/developers/2017/09/api-v1-shutdown-details/" target="_blank" rel="noopener">deprecation of Dropbox v1 API</a>, uppy/uppy-server have now been updated to use the v2 API. It is implemented to work closely as its previous implementation so there should be no worries.</p>
+<h2 id="Custom-plugin-id"><a href="#Custom-plugin-id" class="headerlink" title="Custom plugin id"></a>Custom plugin id</h2><p>Up until now you could only use a plugin once with an Uppy instance. Now you can pass custom <code>id</code> for any plugin (though this has to be manually implemented in any new plugin). This allows using, for example, two <code>StatusBar</code>s, one inside the <code>Dashboard</code>, and one somewhere on the page, visible even when <code>Dashboard</code> is closed.</p>
+<p>Can be used like this:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// one StatusBar comes included in the Dashboard, another will be mounted on the page</span></span><br><span class="line">.use(Dashboard &#123;...&#125;)</span><br><span class="line">.use(StatusBar, &#123; <span class="attr">id</span>: <span class="string">'PageStatusBar'</span>, <span class="attr">target</span>: <span class="string">'body'</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>See <a href="https://github.com/transloadit/uppy/pull/418" target="_blank" rel="noopener">#418 PR</a> for details.</p>
+<h2 id="Misc-good-stuff"><a href="#Misc-good-stuff" class="headerlink" title="Misc good stuff"></a>Misc good stuff</h2><ul>
+<li>Migrated Dropbox in Uppy Server to use v2 API.</li>
+<li>Fixed generating thumbnails for images with transparent background.</li>
+<li>We are now using <a href="https://github.com/goto-bus-stop/tinyify" target="_blank" rel="noopener"><code>tinyify</code></a>(by our own <a href="https://github.com/goto-bus-stop" target="_blank" rel="noopener">@goto-bus-stop</a>) for the Uppy bundle to make it smaller and more efficient.</li>
+<li>Instead of restarting only the file upload itself, start an entirely new upload for retries. Fixes retrying uploads with processing plugins.</li>
+<li>The S3 plugin now includes XHRUpload. <strong>⚠️ Breaking change: you should remove <code>.use(XHRUpload)</code> when using S3.</strong></li>
+<li>XHRUpload now includes a timeout <code>opts.timeout = 30000</code>, after which it errors and offers a retry (retry UI supported in Dashboard), see <a href="https://github.com/transloadit/uppy/pull/378" target="_blank" rel="noopener">#378</a> for more.</li>
+<li>Renamed <code>RestoreFiles</code> → <code>GoldenRetriever</code>, and <code>Tus10</code> → <code>Tus</code>. <strong>⚠️ Breaking change: please make sure to use the new names when setting up plugins</strong>.</li>
+<li>The Webcam plugin has been refactored. There’s no flash fallback now, it works in modern browsers only, and the Webcam tab won’t appear in the Dashboard if a camera is not supported on the device.</li>
+</ul>
+<h2 id="Full-Changelog"><a href="#Full-Changelog" class="headerlink" title="Full Changelog"></a>Full Changelog</h2><p>Here is the full list of changes for version <code>0.21.0</code> (and patches <code>0.20.1</code>, <code>0.20.2</code>, <code>0.20.3</code>):</p>
+<ul>
+<li>accessibility: add tabindex=”0” to buttons and tabs, aria-labels, focus (#414 / @arturi)</li>
+<li>core: allow setting custom <code>id</code> for plugins to allow a plugin to be used multiple times (#418 / @arturi)</li>
+<li>core: do not check isPreviewSupported for unknown filetypes (#417 / @sadovnychyi)</li>
+<li>core: refactor <code>uppy-base</code> (#382 / @goto-bus-stop)</li>
+<li>core: remove functions from state object (#408 / @goto-bus-stop)</li>
+<li>core: return <code>{ successful, failed }</code> from <code>uppy.upload()</code> (#404 / @goto-bus-stop)</li>
+<li>core: update state with error messages rather than error objects (#406 / @richardwillars)</li>
+<li>core: use <code>tinyify</code> for the unpkg bundle. (#371 / @goto-bus-stop)</li>
+<li>dashboard: Fix pasting files, default <code>image</code> file name, add type to meta, file type refactor (#395 / @arturi)</li>
+<li>dragdrop: Fix of the .uppy-DragDrop-inner spacing on small screens (#405 / @nqst)</li>
+<li>react: fix <code>uppy</code> PropType, closes (#416 / @goto-bus-stop)</li>
+<li>s3: automatically wrap XHRUpload. Users should remove <code>.use(XHRUpload)</code> when using S3. (#408 / @goto-bus-stop)</li>
+<li>test: refactored end-to-end tests to not use website, switched to Webdriver.io, added tests for Edge, Safari, Android and iOS (#410 / @arturi)</li>
+<li>tus: Rename Tus10 → Tus (#285 / @goto-bus-stop)</li>
+<li>uppy-serer: mask sensitive data from request logs (@ifedapoolarewaju)</li>
+<li>uppy-server: add request body validators (@ifedapoolarewaju)</li>
+<li>uppy-server: migrate dropbox to use v2 API (#386 / @ifedapoolarewaju)</li>
+<li>uppy-server: store tokens in user’s browser only (@ifedapoolarewaju)</li>
+<li>webcam: only show the webcam tab when browser support is available (media recorder API) (#421 / @arturi, @goto-bus-stop)</li>
+<li>webcam: simplify and refactor webcam plugin (modern browser APIs only) (#382 / @goto-bus-stop)</li>
+<li>xhrupload: set a timeout in the onprogress event handler to detect stale network (#378 / @goto-bus-stop)</li>
+<li>uppy-server: allow flexible whitelist endpoint protocols (@ifedapoolarewaju)</li>
+<li>core: Start a completely new upload when retrying. (#390 / @goto-bus-stop)</li>
+<li>dashboard: Show errors that occurred during processing on the file items. (#391 / @goto-bus-stop)</li>
+<li>transloadit: Mark files as having errored if their assembly fails. (#392 / @goto-bus-stop)</li>
+<li>core: Clear file upload progress when an upload starts. (#393 / @goto-bus-stop)</li>
+<li>tus: Clean up <code>tus.Upload</code> instance and events when an upload starts, finishes, or fails. (#390 / @goto-bus-stop)</li>
+<li>docs: fix <code>getMetaFromForm</code> documentation (@arturi)</li>
+<li>core: fix generating thumbnails for images with transparent background (#380 / @goto-bus-stop)</li>
+<li>transloadit: use Translator class for localised strings (#383 / @goto-bus-stop)</li>
+<li>goldenretriever: don’t crash when required server-side (#384 / @goto-bus-stop)</li>
+<li>redux: add plugin for syncing uppy state with a Redux store (#376 / @richardwillars)</li>
+</ul>
+<p>The Uppy Team</p>
+
+  <div class="PostAuthor">
+    <a href="https://transloadit.com/about/#artur">
+      <img class="PostAuthor-img" src="https://www.gravatar.com/avatar/6ddfaa9427d64ba52bbe021ea5e2ffef?s=200">
+      <h4 class="PostAuthor-name">Artur Paikin</h4>
+      <h5 class="PostAuthor-tagline">Frontend developer and interface designer</h5>
+    </a>
+  </div>
+  <br />
+  <br />
+  <div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'https://community.transloadit.com/',
+                     discourseEmbedUrl: 'https://uppy.io/blog/2017/11/0.21/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

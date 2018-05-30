@@ -1,0 +1,278 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Uppy 0.19: Tests, Informer details and better APIs — Uppy File Uploader</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Uppy 0.19: Tests, Informer details and better APIs — Uppy File Uploader">
+    <meta name="description" content="Hello! The 0.19 release is about internal fixes, optimizations and refactoring, as well as some work on PRs that we’ll hopefully tell you about soon!
+Jest testsThanks to our contributer, @richardwillars, and following the example set by Uppy Server, we’ve switched to Jest for Uppy’s unit tests, and added a bunch of new tests as well. And even more are being added as we speak!
+We’re also happy to r">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/blog/2017/09/0.19/index.html">
+    <meta property="og:title" content="Uppy 0.19: Tests, Informer details and better APIs — Uppy File Uploader">
+    <meta name="twitter:title" content="Uppy 0.19: Tests, Informer details and better APIs — Uppy File Uploader">
+    <meta name="twitter:description" content="Hello! The 0.19 release is about internal fixes, optimizations and refactoring, as well as some work on PRs that we’ll hopefully tell you about soon!
+Jest testsThanks to our contributer, @richardwillars, and following the example set by Uppy Server, we’ve switched to Jest for Uppy’s unit tests, and added a bunch of new tests as well. And even more are being added as we speak!
+We’re also happy to r">
+    <meta property="og:image" content="https://uppy.io/images/blog/0.19/informer-details.jpg">
+    <meta name="twitter:image" content="https://uppy.io/images/blog/0.19/informer-details.jpg">
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy File Uploader" href="/atom.xml">
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto+Mono" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poiret+One:400" rel="stylesheet">
+    <script>
+      window.PAGE_TYPE = ""
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="page-inner">
+    <div class="page">
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <a id="logo" class="MainLogo" href="/">
+          <img class="MainLogo-img" src="/images/logos/uppy-dog-head-arrow.svg">
+          <span class="MainLogo-text">Uppy File Uploader</span>
+        </a>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+          </ul>
+        </nav>
+
+        <a href="https://github.com/transloadit/uppy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#e02177; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          <div class="Sidebar js-Sidebar is-blog">
+    <ul class="main-menu">
+        <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+    </ul>
+    <div class="list">
+        <h2>
+            Recent Posts
+            <a href="/atom.xml" rel="noreferrer noopener" target="_blank" style="vertical-align: middle; margin-left: 5px">
+                <img src="/images/feed.png" style="width:15px;height:15px">
+            </a>
+        </h2>
+        <ul>
+        
+            <li>
+                <a href="/blog/2018/04/0.24/" class="sidebar-link">Uppy 0.24: Refreshed Dashboard, StatusBar and Provider UI, revamped XHR Response Handling</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2018/02/0.23/" class="sidebar-link">Uppy 0.23: Import from Url, refactored thumbnail generation, XHR bundle</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/12/0.22/" class="sidebar-link">Uppy 0.22: Preact, Form, Improved Dashboard, Custom Stores</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/11/0.21/" class="sidebar-link">Uppy 0.21: End to End Tests, Accessibility, Additional Security for Uppy Server</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/10/0.20/" class="sidebar-link">Uppy 0.20: React, Retry & Time Travel</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/09/0.19/" class="sidebar-link current">Uppy 0.19: Tests, Informer details and better APIs</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/09/0.18/" class="sidebar-link">Uppy 0.18: Dogumentation and The GoldenRetriever</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/07/golden-retriever/" class="sidebar-link">The Golden Retriever: Making uploads survive browser crashes</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/07/0.17/" class="sidebar-link">Uppy 0.17: Restrictions</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/05/0.16/" class="sidebar-link">Uppy 0.16: Transloadit!</a>
+            </li>
+        
+        </ul>
+        <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+    </div>
+</div>
+
+<div class="Content js-Content with-sidebar">
+  <h1>Uppy 0.19: Tests, Informer details and better APIs</h1>
+  <h4>Sep 21, 2017</h4>
+  <p>Hello! The <code>0.19</code> release is about internal fixes, optimizations and refactoring, as well as some work on PRs that we’ll hopefully tell you about soon!</p>
+<h2 id="Jest-tests"><a href="#Jest-tests" class="headerlink" title="Jest tests"></a>Jest tests</h2><p>Thanks to our contributer, <a href="https://github.com/richardwillars" target="_blank" rel="noopener">@richardwillars</a>, and following the example set by Uppy Server, we’ve <a href="https://github.com/transloadit/uppy/pull/310" target="_blank" rel="noopener">switched to Jest</a> for Uppy’s unit tests, and added a bunch of new tests as well. And even more are being <a href="https://github.com/transloadit/uppy/pull/346" target="_blank" rel="noopener">added</a> as we speak!</p>
+<p>We’re also happy to report that <a href="https://github.com/transloadit/uppy-server/compare/3341a9592d0723fd9b58ec77d8c762f20b434704...d3c6f5b409d08f588d1704b77181e5c0342ca322" target="_blank" rel="noopener">more tests</a> have been added for Uppy Server.</p>
+<h2 id="Dashboard-APIs"><a href="#Dashboard-APIs" class="headerlink" title="Dashboard APIs"></a>Dashboard APIs</h2><p>We’ve exposed <code>show/hide/isOpen</code> APIs for the Dashboard UI plugin. Now you can open and close the modal dialog programmatically:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> modal = uppy.getPlugin(<span class="string">'Dashboard'</span>)</span><br><span class="line">modal.show()</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">button.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (modal.isOpen()) &#123;</span><br><span class="line">    modal.hide()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    modal.show()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Check out <a href="https://uppy.io/docs/dashboard/#Methods">the docs</a>.</p>
+<a id="more"></a>
+<h2 id="Transloadit"><a href="#Transloadit" class="headerlink" title="Transloadit"></a>Transloadit</h2><ul>
+<li>Possibility to upload to S3, then import into an assembly;</li>
+<li>New <code>alwaysRunAssembly</code> option has beed added to run assemblies when no files are uploaded.</li>
+</ul>
+<h2 id="Informer-details"><a href="#Informer-details" class="headerlink" title="Informer details"></a>Informer details</h2><p>Informer supports “explanations”, a questionmark (?) button that shows more info on hover / click.</p>
+<p><img class="border" src="/images/blog/0.19/informer-details.jpg"></p>
+<h2 id="Misc-good-stuff"><a href="#Misc-good-stuff" class="headerlink" title="Misc good stuff"></a>Misc good stuff</h2><ul>
+<li>Uppy instance ID, useful for GoldenRetriver, check out <a href="https://github.com/transloadit/uppy/tree/master/examples/multiple-instances" target="_blank" rel="noopener">example using multiple Uppy instances</a>;</li>
+<li>Custom error messages from upload endpoints are now supported (#305);</li>
+<li>Fixed <code>calculateTotalProgress</code> and <code>restrictions</code>; improved <code>generateFileID</code> and <code>isOnline</code>;</li>
+<li>Removed some unused css styles from the bundle;</li>
+<li>Allow multiple <code>trigger</code> elements for the Dashboard, via using the same <code>class</code> attribute;</li>
+<li>Image previews are now resized gradually for better performance and quality;</li>
+<li>Metadata edits in the Dashboard are now saved when pressing enter key;</li>
+</ul>
+<h2 id="Full-Changelog"><a href="#Full-Changelog" class="headerlink" title="Full Changelog"></a>Full Changelog</h2><p>Here is the full list of changes for version <code>0.19</code> (and patch <code>0.18.1</code>):</p>
+<ul>
+<li>core: gradually resize image previews (#275 / @goto-bus-stop)</li>
+<li>informer: support “explanations”, a (?) button that shows more info on hover / click (#292 / @arturi)</li>
+<li>fix webcam video recording (@goto-bus-stop)</li>
+<li>bundle: add missing plugins (s3, statusbar, restorefiles) to unpkg bundle (#301 / @goto-bus-stop)</li>
+<li>xhrupload: Use error messages from the endpoint (#305 / @goto-bus-stop)</li>
+<li>dashboard: prevent submitting outer form when pressing enter key while editing metadata (#306 / @goto-bus-stop)</li>
+<li>dashboard: save metadata edits when pressing enter key (#308 / @arturi)</li>
+<li>transloadit: upload to S3, then import into :tl: assembly using <code>/add_file?s3url=${url}</code> (#280 / @goto-bus-stop)</li>
+<li>transloadit: add <code>alwaysRunAssembly</code> option to run assemblies when no files are uploaded (#290 / @goto-bus-stop)</li>
+<li>core: use <code>iteratePlugins</code> inside <code>updateAll</code> (#312 / @richardwillars)</li>
+<li>core: improve error when plugin does not have ID (#309 / @richardwillars)</li>
+<li>tus: Clear stored <code>uploadUrl</code> on <code>uppy.resetProgress()</code> call (#314 / @goto-bus-stop)</li>
+<li>website: simplify examples and code samples, prevent sidebar subheading links anywhere but in docs (@arturi)</li>
+<li>website: group plugin docs together in the sidebar (@arturi)</li>
+<li>goldenretriever: allow passing options to <code>IndexedDbStore</code> (#339 / sunil-shrestha)</li>
+<li>core: add Uppy instance ID option, namespace serviceWorker action types, add example using multiple Uppy instances with GoldenRetriever (#333 / @goto-bus-stop)</li>
+<li>core: fix <code>calculateTotalProgress</code> - NaN (#342 / @arturi)</li>
+<li>core: fix and refactor <code>restrictions</code> (#345 / @arturi)</li>
+<li>core: Better <code>generateFileID</code> (#330 / @arturi)</li>
+<li>core: improve <code>isOnline()</code> (#319 / @richardwillars)</li>
+<li>core: remove unused bootstrap styles (#329 / @arturi)</li>
+<li>core: experiment with yo-yo –&gt; preact and picodom (#297 / @arturi)</li>
+<li>dashboard: fix FileItem source icon position and copy (@arturi)</li>
+<li>dashboard: expose and document the <code>show/hide/isOpen</code> API (@arturi)</li>
+<li>dashboard: allow multiple <code>trigger</code> of the same class <code>.open-uppy</code> (#328 / @arturi)</li>
+<li>plugins: add <code>aria-hidden</code> to all SVG icons for accessibility (#4e808ca3d26f06499c58bb77abbf1c3c2b510b4d / @arturi)</li>
+<li>core: Handle sync returns and throws in possibly-async function options (#315 / @goto-bus-stop)</li>
+<li>core: switch to Jest tests, add more tests for Core and Utils (#310 / @richardwillars)</li>
+<li>website: Minify bundle for <code>disc</code> (#332 / @goto-bus-stop)</li>
+<li>transloadit: remove <code>this.state</code> getter (#331 / @goto-bus-stop)</li>
+<li>server: option to define valid upload urls (@ifedapoolarewaju)</li>
+<li>server: more automated tests (@ifedapoolarewaju)</li>
+</ul>
+<p>The Uppy Team</p>
+
+  <div class="PostAuthor">
+    <a href="https://transloadit.com/about/#artur">
+      <img class="PostAuthor-img" src="https://www.gravatar.com/avatar/6ddfaa9427d64ba52bbe021ea5e2ffef?s=200">
+      <h4 class="PostAuthor-name">Artur Paikin</h4>
+      <h5 class="PostAuthor-tagline">Frontend developer and interface designer</h5>
+    </a>
+  </div>
+  <br />
+  <br />
+  <div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'https://community.transloadit.com/',
+                     discourseEmbedUrl: 'https://uppy.io/blog/2017/09/0.19/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

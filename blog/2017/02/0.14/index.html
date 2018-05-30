@@ -1,0 +1,276 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Uppy 0.14: Responsive Dashboard, Standalone & Pluggable Server, Dropbox — Uppy File Uploader</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Uppy 0.14: Responsive Dashboard, Standalone &amp; Pluggable Server, Dropbox — Uppy File Uploader">
+    <meta name="description" content="Hi! Hope y’all have had great holidays! 🎄 Which reminds us, we still have a gift for you — and we even wrapped it in a package (npm). Look inside and you’ll find that Uppy 0.14!
+“But wait”, you might ask, “where is the 0.13 release that we have been waiting for?”
+Well, let’s just say we are superstitious like that. You won’t see us coding under any ladders either! And we were also in the middle o">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/blog/2017/02/0.14/index.html">
+    <meta property="og:title" content="Uppy 0.14: Responsive Dashboard, Standalone & Pluggable Server, Dropbox — Uppy File Uploader">
+    <meta name="twitter:title" content="Uppy 0.14: Responsive Dashboard, Standalone & Pluggable Server, Dropbox — Uppy File Uploader">
+    <meta name="twitter:description" content="Hi! Hope y’all have had great holidays! 🎄 Which reminds us, we still have a gift for you — and we even wrapped it in a package (npm). Look inside and you’ll find that Uppy 0.14!
+“But wait”, you might ask, “where is the 0.13 release that we have been waiting for?”
+Well, let’s just say we are superstitious like that. You won’t see us coding under any ladders either! And we were also in the middle o">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social.jpg">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social.jpg">
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy File Uploader" href="/atom.xml">
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto+Mono" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poiret+One:400" rel="stylesheet">
+    <script>
+      window.PAGE_TYPE = ""
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="page-inner">
+    <div class="page">
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <a id="logo" class="MainLogo" href="/">
+          <img class="MainLogo-img" src="/images/logos/uppy-dog-head-arrow.svg">
+          <span class="MainLogo-text">Uppy File Uploader</span>
+        </a>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+          </ul>
+        </nav>
+
+        <a href="https://github.com/transloadit/uppy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#e02177; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          <div class="Sidebar js-Sidebar is-blog">
+    <ul class="main-menu">
+        <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+    </ul>
+    <div class="list">
+        <h2>
+            Recent Posts
+            <a href="/atom.xml" rel="noreferrer noopener" target="_blank" style="vertical-align: middle; margin-left: 5px">
+                <img src="/images/feed.png" style="width:15px;height:15px">
+            </a>
+        </h2>
+        <ul>
+        
+            <li>
+                <a href="/blog/2018/04/0.24/" class="sidebar-link">Uppy 0.24: Refreshed Dashboard, StatusBar and Provider UI, revamped XHR Response Handling</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2018/02/0.23/" class="sidebar-link">Uppy 0.23: Import from Url, refactored thumbnail generation, XHR bundle</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/12/0.22/" class="sidebar-link">Uppy 0.22: Preact, Form, Improved Dashboard, Custom Stores</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/11/0.21/" class="sidebar-link">Uppy 0.21: End to End Tests, Accessibility, Additional Security for Uppy Server</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/10/0.20/" class="sidebar-link">Uppy 0.20: React, Retry & Time Travel</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/09/0.19/" class="sidebar-link">Uppy 0.19: Tests, Informer details and better APIs</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/09/0.18/" class="sidebar-link">Uppy 0.18: Dogumentation and The GoldenRetriever</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/07/golden-retriever/" class="sidebar-link">The Golden Retriever: Making uploads survive browser crashes</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/07/0.17/" class="sidebar-link">Uppy 0.17: Restrictions</a>
+            </li>
+        
+            <li>
+                <a href="/blog/2017/05/0.16/" class="sidebar-link">Uppy 0.16: Transloadit!</a>
+            </li>
+        
+        </ul>
+        <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+    </div>
+</div>
+
+<div class="Content js-Content with-sidebar">
+  <h1>Uppy 0.14: Responsive Dashboard, Standalone & Pluggable Server, Dropbox</h1>
+  <h4>Feb 13, 2017</h4>
+  <p>Hi! Hope y’all have had great holidays! 🎄 Which reminds us, we still have a gift for you — and we even wrapped it in a package (npm). Look inside and you’ll find that Uppy 0.14!</p>
+<p>“But wait”, you might ask, “where is the 0.13 release that we have been waiting for?”</p>
+<p>Well, let’s just say we are superstitious like that. You won’t see us coding under any ladders either! And we were also in the middle of the holiday season, so we decided to call 0.13 “The Release That Wasn’t” and skip it.</p>
+<p>Let’s take a look at what Uppy 0.14 has in store for you.</p>
+<a id="more"></a>
+<h2 id="Major-Uppy-Server-Updates"><a href="#Major-Uppy-Server-Updates" class="headerlink" title="Major Uppy Server Updates"></a>Major Uppy Server Updates</h2><p><strong>Express.js</strong><br>We’ve switched to Express from Koa. It’s more widely adopted and supported, has larger community and better maintained packages, so we went for it.</p>
+<p><strong>Pluggable or standalone</strong><br>Uppy Server can now be plugged into your existing Express/Koa server app, but you can also still run it as a standalone server. <a href="https://github.com/transloadit/uppy-server#run-as-standalone-server" target="_blank" rel="noopener">See here</a> for further instructions.</p>
+<p><strong>Smooth authentication</strong><br>It used to be the case that when you clicked that stylish “authenticate” [with Google Drive] button, you were taken away from the page, and things tended to get lost. That has now all been made silky smooth: upon clicking the button, a fresh tab will open in your browser, which will take you to the authentication page – be it on Google Drive, Dropbox, or somewhere else. When you are done, this tab is automagically closed, and you are back where you were, authenticated, with all your remote files at hand.</p>
+<p><img class="border" src="/images/blog/0.14/smooth-auth.png"></p>
+<p><strong>Dropbox plugin</strong><br>Dropbox support made it into Uppy this release! 🎉 <a href="https://github.com/ifedapoolarewaju" target="_blank" rel="noopener">Ife</a> rocks like that. (A shoutout here as well to <a href="https://github.com/hedgerh" target="_blank" rel="noopener">Harry</a> for the initial work on Uppy Server and the Google Drive plugin!) Why don’t you <a href="https://uppy.io/examples/dashboard/">give it a try</a>!</p>
+<p><img class="border" src="/images/blog/0.14/uppy-dropbox.png"></p>
+<p>What’s more, the client-side code of Google Drive and Dropbox plugins is slowly being refactored into a generic provider view that can be shared among all services.</p>
+<h2 id="Dashboard"><a href="#Dashboard" class="headerlink" title="Dashboard"></a>Dashboard</h2><p><strong>Responsive UI and more icons</strong><br>The Dashboard now adapts itself to screen sizes big and small. That includes <code>inline</code> mode, where you can set <code>maxWidth</code> and <code>maxHeight</code> in options, like so:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.use(Dashboard, &#123;</span><br><span class="line">  maxWidth: <span class="number">300</span>,</span><br><span class="line">  maxHeight: <span class="number">350</span>,</span><br><span class="line">  inline: <span class="literal">true</span>,</span><br><span class="line">  target: <span class="string">'#myUploadContainer'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>We are not using media queries here, but have instead added a <code>UppyDashboard--wide</code> CSS class, which allows for more flexibility — your file uploading widget can be tiny even if the screen is large.</p>
+<p>When there is little space available, the file grid view that you have become used to, will turn into a new compact list view.</p>
+<figure class="wide"><img src="/images/blog/0.14/dashboard-grid-list.jpg"></figure>
+
+<p>We are also adding more file type icons and trying to be smarter about detecting them. We have new icons for video, audio, text, and PDF for you to enjoy.</p>
+<p><strong>Total / uploaded sizes</strong><br>Total and uploaded sizes have been added to the StatusBar, allowing you and your users to keep track of all those bits and bytes.</p>
+<p><img src="/images/blog/0.14/statusbar-uploaded-total-size.png"></p>
+<p>You can play with all of these new features on <a href="https://uppy.io/examples/dashboard/">the Dashboard example page</a>.</p>
+<!-- more -->
+<h2 id="Per-plugin-locale-settings"><a href="#Per-plugin-locale-settings" class="headerlink" title="Per plugin locale settings"></a>Per plugin locale settings</h2><p>We have moved locale settings from global/core to plugins. By default, each UI plugin ships with an English locale, and you can override any string with your own, like so:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.use(DragDrop, &#123;<span class="attr">target</span>: <span class="string">'.drop'</span>, <span class="attr">locale</span>: &#123;</span><br><span class="line">  strings: &#123;</span><br><span class="line">    chooseFile: <span class="string">'Valitse tiedoston'</span>,</span><br><span class="line">    orDragDrop: <span class="string">'tai siirtää tänne'</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/blog/0.14/dnd-fi.png"></p>
+<p>And just like that, your Drag&amp;Drop plugin now speaks Finnish! <em>Hyvää huomenta!</em> This feature is a work in progress, we are trying to find the sweet spot between <a href="https://github.com/transloadit/uppy/blob/8c6252933813af69c1b71ec4621a7fc14dfb3ab0/src/locales/pt_BR.js" target="_blank" rel="noopener">bundling a whole bunch of strings in packs</a>, which might be redundant (i.e. if you only use the Drag&amp;Drop, you don’t need strings from the Dashboard), and making you choose or set language strings for each UI plugin. We’d love to <a href="https://github.com/transloadit/uppy/issues/42" target="_blank" rel="noopener">hear what you think</a>.</p>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><ul>
+<li><a href="https://www.npmjs.com/package/yo-yoify" target="_blank" rel="noopener">yo-yoify</a> has been added to our build setup in order to solve a <a href="https://github.com/shama/bel#note" target="_blank" rel="noopener">Function.caller / strict mode issue</a> and to make the app faster/smaller by transforming template strings into pure and fast document calls.</li>
+<li>By the way, Uppy’s UI DOM is powered by <a href="https://www.npmjs.com/package/yo-yo" target="_blank" rel="noopener">yo-yo</a>. We like yo-yo for its simplicity, speed and small size, but sometimes there are issues, one of them being the lack of wide adoption. We are looking at <a href="https://preactjs.com/" target="_blank" rel="noopener">Preact</a>, but are also quite excited about <a href="https://github.com/yoshuawuyts/nanocomponent" target="_blank" rel="noopener">Nanocomponent</a>.</li>
+<li>Progress events that were not being properly sent from Uppy Server as now fixed. As it turns out, this occurred because server uploads were happening too fast, before the client was actually able to connect to the server. :scream: Guess that’s a good problem to have solved!</li>
+<li>We have recently added Uppy to <a href="https://www.producthunt.com/posts/uppy" target="_blank" rel="noopener">Product Hunt</a> and we were very pleased with the warm welcome, we even made it to the front page a few days later. Let’s hope it will help get more people excited about the project.</li>
+</ul>
+<h2 id="Release-Notes"><a href="#Release-Notes" class="headerlink" title="Release Notes"></a>Release Notes</h2><p>Here is the full list of changes for version 0.14:</p>
+<ul>
+<li>dashboard: use <code>isWide</code> prop/class instead of media queries, so that compact/mobile version can be used in bigger screens too (@arturi)</li>
+<li>dashboard: basic “list” view in addition to current “grid” view (@arturi)</li>
+<li>dashboard: more icons for file types (@arturi)</li>
+<li>dashboard: add totalSize and totalUploadedSize to StatusBar (@arturi)</li>
+<li>dashboard: figure out where to place Informer, accounting for StatusBar — over the StatusBar for now (@arturi)</li>
+<li>dashboard: add <code>&lt;progress&gt;</code> element for progress bar, like here <a href="https://overcast.fm/+BtuxMygVg/" target="_blank" rel="noopener">https://overcast.fm/+BtuxMygVg/</a>. Added hidden for now, for semantics/accessibility (@arturi)</li>
+<li>dragdrop: show number of selected files, remove upload btn (@arturi)</li>
+<li>build: exclude locales from build (@arturi)</li>
+<li>core: i18n for each plugin in options — local instead of global (@arturi)</li>
+<li>core: add default pluralization (can be overridden in plugin options) to Translator (@arturi)</li>
+<li>core: use yo-yoify to solve <a href="https://github.com/shama/bel#note" target="_blank" rel="noopener">Function.caller / strict mode issue</a> and make our app faster/smaller by transforming template strings into pure and fast document calls (@arturi)</li>
+<li>server: a pluggable uppy-server (express / koa for now) (@ifedapoolarewaju)</li>
+<li>server: standalone uppy-server (@ifedapoolarewaju)</li>
+<li>server: Integrate dropbox plugin (@ifedapoolarewaju)</li>
+<li>server: smooth authentication: after auth you are back in your app where you left, no page reloads (@ifedapoolarewaju)</li>
+<li>tus: fix upload progress from uppy-server (@arturi, @ifedapoolarewaju)</li>
+<li>core: basic React component — DnD (@arturi)</li>
+<li>core: fix support for both ES6 module import and CommonJS requires with <code>add-module-exports</code> babel plugin (@arturi)</li>
+</ul>
+<h2 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h2><p>We appreciate your feedback, feel free to <a href="https://github.com/transloadit/uppy/issues/" target="_blank" rel="noopener">comment on GitHub</a>, send a PR, and hit us on <a href="https://twitter.com/uppy_io" target="_blank" rel="noopener">twitter</a>.</p>
+<p>The Uppy Team</p>
+
+  <div class="PostAuthor">
+    <a href="https://transloadit.com/about/#artur">
+      <img class="PostAuthor-img" src="https://www.gravatar.com/avatar/6ddfaa9427d64ba52bbe021ea5e2ffef?s=200">
+      <h4 class="PostAuthor-name">Artur Paikin</h4>
+      <h5 class="PostAuthor-tagline">Frontend developer and interface designer</h5>
+    </a>
+  </div>
+  <br />
+  <br />
+  <div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'https://community.transloadit.com/',
+                     discourseEmbedUrl: 'https://uppy.io/blog/2017/02/0.14/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

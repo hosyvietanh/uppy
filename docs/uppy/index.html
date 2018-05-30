@@ -1,0 +1,566 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Uppy — Uppy File Uploader</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Uppy — Uppy File Uploader">
+    <meta name="description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let&#39;s you worry about more important problems than building a file uploader.
+">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/docs/uppy/index.html">
+    <meta property="og:title" content="Uppy — Uppy File Uploader">
+    <meta name="twitter:title" content="Uppy — Uppy File Uploader">
+    <meta name="twitter:description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let's you worry about more important problems than building a file uploader.
+">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social.jpg">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social.jpg">
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy File Uploader" href="/atom.xml">
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto+Mono" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poiret+One:400" rel="stylesheet">
+    <script>
+      window.PAGE_TYPE = "docs"
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="page-inner">
+    <div class="page">
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <a id="logo" class="MainLogo" href="/">
+          <img class="MainLogo-img" src="/images/logos/uppy-dog-head-arrow.svg">
+          <span class="MainLogo-text">Uppy File Uploader</span>
+        </a>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+          </ul>
+        </nav>
+
+        <a href="https://github.com/transloadit/uppy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#e02177; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          
+    <div class="Sidebar js-Sidebar">
+  <ul class="main-menu">
+    <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+  </ul>
+  <div class="list">
+    <h2>
+      
+        <a href="/docs">Docs</a>
+      
+    </h2>
+    <ul class="menu-root">
+      
+        
+        
+        
+          <li>
+            <a href="/docs/" class="sidebar-link">Getting Started</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/uppy/" class="sidebar-link current">Uppy</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/server/" class="sidebar-link">Uppy Server</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/stores/" class="sidebar-link">Custom Stores</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/contributing.html" class="sidebar-link">Contributing</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/stats/" class="sidebar-link">Stats</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/plugins/">Plugins</a></h3>
+          </li>
+          <li>
+            <a href="/docs/plugins/" class="sidebar-link">List & Common Options</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/writing-plugins/" class="sidebar-link">Writing Plugins</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dashboard/" class="sidebar-link">Dashboard</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dragdrop/" class="sidebar-link">DragDrop</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/statusbar/" class="sidebar-link">StatusBar</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/progressbar/" class="sidebar-link">ProgressBar</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/informer/" class="sidebar-link">Informer</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/fileinput/" class="sidebar-link">FileInput</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/webcam/" class="sidebar-link">Webcam</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/tus/" class="sidebar-link">Tus</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/form/" class="sidebar-link">Form</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/xhrupload/" class="sidebar-link">XHRUpload</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/aws-s3/" class="sidebar-link">AwsS3</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/aws-s3-multipart/" class="sidebar-link">AwsS3Multipart</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/transloadit/" class="sidebar-link">Transloadit</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/golden-retriever/" class="sidebar-link">GoldenRetriever</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/providers/">Remote Providers</a></h3>
+          </li>
+          <li>
+            <a href="/docs/providers/" class="sidebar-link">Provider Plugins</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dropbox/" class="sidebar-link">Dropbox</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/google-drive/" class="sidebar-link">GoogleDrive</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/instagram/" class="sidebar-link">Instagram</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/url/" class="sidebar-link">Url</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/react/">React Components</a></h3>
+          </li>
+          <li>
+            <a href="/docs/react/" class="sidebar-link">Introduction</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/statusbar/" class="sidebar-link">&lt;StatusBar /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dragdrop/" class="sidebar-link">&lt;DragDrop /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/progressbar/" class="sidebar-link">&lt;ProgressBar /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dashboard/" class="sidebar-link">&lt;Dashboard /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dashboard-modal/" class="sidebar-link">&lt;DashboardModal /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/redux.html" class="sidebar-link">Redux</a>
+          </li>
+        
+      
+    </ul>
+    <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+
+<div class="Content js-Content docs with-sidebar">
+    <h1>Uppy</h1>
+    <p>Core module that orchestrates everything in Uppy, exposing <code>state</code>, <code>events</code> and <code>methods</code>.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Uppy = <span class="built_in">require</span>(<span class="string">'uppy/lib/core'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> uppy = Uppy()</span><br></pre></td></tr></table></figure>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> uppy = Uppy(&#123;</span><br><span class="line">  id: <span class="string">'uppy'</span>,</span><br><span class="line">  autoProceed: <span class="literal">true</span>,</span><br><span class="line">  debug: <span class="literal">false</span>,</span><br><span class="line">  restrictions: &#123;</span><br><span class="line">    maxFileSize: <span class="literal">null</span>,</span><br><span class="line">    maxNumberOfFiles: <span class="literal">null</span>,</span><br><span class="line">    minNumberOfFiles: <span class="literal">null</span>,</span><br><span class="line">    allowedFileTypes: <span class="literal">null</span></span><br><span class="line">  &#125;,</span><br><span class="line">  meta: &#123;&#125;,</span><br><span class="line">  onBeforeFileAdded: <span class="function">(<span class="params">currentFile, files</span>) =&gt;</span> currentFile,</span><br><span class="line">  onBeforeUpload: <span class="function">(<span class="params">files</span>) =&gt;</span> &#123;&#125;,</span><br><span class="line">  locale: defaultLocale,</span><br><span class="line">  store: <span class="keyword">new</span> DefaultStore()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="id-39-uppy-39"><a href="#id-39-uppy-39" class="headerlink" title="id: &#39;uppy&#39;"></a><code>id: &#39;uppy&#39;</code></h3><p>A site-wide unique ID for the instance.</p>
+<p>If multiple Uppy instances are being used, for example on two different pages, an <code>id</code> should be specified. This allows Uppy to store information in <code>localStorage</code> without colliding with other Uppy instances.</p>
+<p>Note that this ID should be persistent across page reloads and navigation—it shouldn’t be a random number that’s different every time Uppy is loaded.<br>For example, if one Uppy instance is used to upload user avatars, and another to add photos to a blog post, you might use:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> avatarUploader = Uppy(&#123; <span class="attr">id</span>: <span class="string">'avatar'</span> &#125;)</span><br><span class="line"><span class="keyword">const</span> photoUploader = Uppy(&#123; <span class="attr">id</span>: <span class="string">'post'</span> &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="autoProceed-true"><a href="#autoProceed-true" class="headerlink" title="autoProceed: true"></a><code>autoProceed: true</code></h3><p>Uppy will start uploading automatically after the first file is selected.</p>
+<h3 id="restrictions"><a href="#restrictions" class="headerlink" title="restrictions: {}"></a><code>restrictions: {}</code></h3><p>Optionally provide rules and conditions for which files can be selected.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>maxFileSize</code> <em>null | number</em></li>
+<li><code>maxNumberOfFiles</code> <em>null | number</em></li>
+<li><code>minNumberOfFiles</code> <em>null | number</em></li>
+<li><code>allowedFileTypes</code> <em>null | array</em> of wildcards <code>image/*</code>, exact mime types <code>image/jpeg</code>, or file extensions <code>.jpg</code>: <code>[&#39;image/*&#39;, &#39;.jpg&#39;, &#39;.jpeg&#39;, &#39;.png&#39;, &#39;.gif&#39;]</code></li>
+</ul>
+<p><code>maxNumberOfFiles</code> affects the number of files user is able to select via the system file dialog in UI plugins like <code>DragDrop</code>, <code>FileInput</code> and <code>Dashboard</code>: when set to <code>1</code> they will only be able to select a single file, otherwise, when <code>null</code> or other number, they will be able to select multiple files.</p>
+<p><code>allowedFileTypes</code> gets passed to the system file dialog via <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Limiting_accepted_file_types" target="_blank" rel="noopener"><code>&lt;input&gt;</code></a>’s accept attribute, so only files matching these types will be selectable.</p>
+<h3 id="meta"><a href="#meta" class="headerlink" title="meta: {}"></a><code>meta: {}</code></h3><p>Metadata object, pass things like public keys, usernames, tags or whatever:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">meta: &#123;</span><br><span class="line">  username: <span class="string">'John'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This global metadata is added to each file in Uppy. It can be modified with two methods:</p>
+<ol>
+<li><a href="/docs/uppy/#uppy-setMeta-data"><code>uppy.setMeta({ username: &#39;Peter&#39; })</code></a> — set or update meta for all files.</li>
+<li><a href="/docs/uppy/#uppy-setFileMeta-fileID-data"><code>uppy.setFileMeta(&#39;myfileID&#39;, { resize: 1500 })</code></a> — set or update meta for specific file.</li>
+</ol>
+<p>Metadata from each file is then attached to uploads in <a href="/docs/tus/">Tus</a> and <a href="/docs/xhrupload/">XHRUpload</a> plugins.</p>
+<p>Metadata can also be added from a <code>&lt;form&gt;</code> element on your page via <a href="/docs/form/">Form</a>plugin or via UI if you are using Dashboard with <a href="/docs/dashboard/#metaFields"><code>metaFields</code></a> option.</p>
+<p><a id="onBeforeFileAdded"></a></p>
+<h3 id="onBeforeFileAdded-currentFile-files-gt-currentFile"><a href="#onBeforeFileAdded-currentFile-files-gt-currentFile" class="headerlink" title="onBeforeFileAdded: (currentFile, files) =&gt; currentFile"></a><code>onBeforeFileAdded: (currentFile, files) =&gt; currentFile</code></h3><p>A function run before a file is added to Uppy. Gets passed <code>(currentFile, files)</code> where <code>currentFile</code> is a file that is about to be added, and <code>files</code> is an object with all files that already are in Uppy.</p>
+<p>Use this function to run any number of custom checks on the selected file, or manipulating it, like optimizing a file name, for example.</p>
+<p>Return true/nothing or a modified file object to proceed with adding the file:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onBeforeFileAdded: <span class="function">(<span class="params">currentFile, files</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (currentFile.name === <span class="string">'forest-IMG_0616.jpg'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"></span><br><span class="line">onBeforeFileAdded: <span class="function">(<span class="params">currentFile, files</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> modifiedFile = <span class="built_in">Object</span>.assign(</span><br><span class="line">    &#123;&#125;,</span><br><span class="line">    currentFile,</span><br><span class="line">    &#123; <span class="attr">name</span>: currentFile + <span class="built_in">Date</span>.now()</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> modifiedFile</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Return false to abort adding the file:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onBeforeFileAdded: <span class="function">(<span class="params">currentFile, files</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!currentFile.type) &#123;</span><br><span class="line">    <span class="comment">// log to console</span></span><br><span class="line">    uppy.log(<span class="string">`Skipping file because it has no type`</span>)</span><br><span class="line">    <span class="comment">// show error message to the user</span></span><br><span class="line">    uppy.info(<span class="string">`Skipping file because it has no type`</span>, <span class="string">'error'</span>, <span class="number">500</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Note: it’s up to you to show a notification to the user about file not passing validation. We recommend showing a message using <a href="#uppy-info">uppy.info()</a> and logging to console for debugging.</p>
+<p><a id="onBeforeUpload"></a></p>
+<h3 id="onBeforeUpload-files-gt-files"><a href="#onBeforeUpload-files-gt-files" class="headerlink" title="onBeforeUpload: (files) =&gt; files"></a><code>onBeforeUpload: (files) =&gt; files</code></h3><p>A function run before an upload begins. Gets passed <code>files</code> object with all the files that are already in Uppy.</p>
+<p>Use this to check if all files or their total number match your requirements, or manipulate all the files at once before upload.</p>
+<p>Return true or modified <code>files</code> object to proceed:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onBeforeUpload: <span class="function">(<span class="params">files</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> updatedFiles = <span class="built_in">Object</span>.assign(&#123;&#125;, files)</span><br><span class="line">  <span class="built_in">Object</span>.keys(updatedFiles).forEach(<span class="function"><span class="params">fileId</span> =&gt;</span> &#123;</span><br><span class="line">    updatedFiles[fileId].name = <span class="string">'myCustomPrefix_'</span> + updatedFiles[fileId].name</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> updatedFiles</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Return false to abort:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onBeforeUpload: <span class="function">(<span class="params">files</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Object</span>.keys(files).length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// log to console</span></span><br><span class="line">    uppy.log(<span class="string">`Aborting upload because only <span class="subst">$&#123;<span class="built_in">Object</span>.keys(files).length&#125;</span> files were selected`</span>)</span><br><span class="line">    <span class="comment">// show error message to the user</span></span><br><span class="line">    uppy.info(<span class="string">`You have to select at least 2 files`</span>, <span class="string">'error'</span>, <span class="number">500</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Note: it’s up to you to show a notification to the user about file not passing validation. We recommend showing a message using <a href="#uppy-info">uppy.info()</a> and logging to console for debugging.</p>
+<h3 id="locale"><a href="#locale" class="headerlink" title="locale: {}"></a><code>locale: {}</code></h3><p>Same deal as in plugins, this allows you to override language strings:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">locale: &#123;</span><br><span class="line">  strings: &#123;</span><br><span class="line">    youCanOnlyUploadX: &#123;</span><br><span class="line">      <span class="number">0</span>: <span class="string">'You can only upload %&#123;smart_count&#125; file'</span>,</span><br><span class="line">      <span class="number">1</span>: <span class="string">'You can only upload %&#123;smart_count&#125; files'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    youHaveToAtLeastSelectX: &#123;</span><br><span class="line">      <span class="number">0</span>: <span class="string">'You have to select at least %&#123;smart_count&#125; file'</span>,</span><br><span class="line">      <span class="number">1</span>: <span class="string">'You have to select at least %&#123;smart_count&#125; files'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    exceedsSize: <span class="string">'This file exceeds maximum allowed size of'</span>,</span><br><span class="line">    youCanOnlyUploadFileTypes: <span class="string">'You can only upload:'</span>,</span><br><span class="line">    uppyServerError: <span class="string">'Connection with Uppy Server failed'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As well as the pluralization function, which is used to determine which string will be used for the provided <code>smart_count</code> number.</p>
+<p>For example, for Icelandic language the pluralization function would be:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">locale: &#123;</span><br><span class="line">  pluralize: <span class="function">(<span class="params">n</span>) =&gt;</span> (n % <span class="number">10</span> !== <span class="number">1</span> || n % <span class="number">100</span> === <span class="number">11</span>) ? <span class="number">1</span> : <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>We are using a forked <a href="https://github.com/airbnb/polyglot.js/blob/master/index.js#L37-L60" target="_blank" rel="noopener">Polyglot.js</a>.</p>
+<h3 id="store-defaultStore"><a href="#store-defaultStore" class="headerlink" title="store: defaultStore()"></a><code>store: defaultStore()</code></h3><p>The Store to use to keep track of internal state. By <a href="/docs/stores/#DefaultStore">default</a>, a simple object is used.</p>
+<p>This option can be used to plug Uppy state into an external state management library, such as <a href="/docs/stores/#ReduxStore">Redux</a>. Then, you can write custom views with the library that is also used by the rest of the application.</p>
+<!-- TODO document store API -->
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="uppy-use-plugin-opts"><a href="#uppy-use-plugin-opts" class="headerlink" title="uppy.use(plugin, opts)"></a><code>uppy.use(plugin, opts)</code></h3><p>Add a plugin to Uppy, with an optional plugin options object.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Uppy = <span class="built_in">require</span>(<span class="string">'uppy/lib/core'</span>)</span><br><span class="line"><span class="keyword">const</span> DragDrop = <span class="built_in">require</span>(<span class="string">'uppy/lib/plugins/DragDrop'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> uppy = Uppy()</span><br><span class="line">uppy.use(DragDrop, &#123; <span class="attr">target</span>: <span class="string">'body'</span> &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="uppy-getID"><a href="#uppy-getID" class="headerlink" title="uppy.getID()"></a><code>uppy.getID()</code></h3><p>Get the uppy instance ID, see the <a href="#id-39-uppy-39"><code>id</code> option</a>.</p>
+<h3 id="uppy-addFile-fileObject"><a href="#uppy-addFile-fileObject" class="headerlink" title="uppy.addFile(fileObject)"></a><code>uppy.addFile(fileObject)</code></h3><p>Add a new file to Uppy’s internal state.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.addFile(&#123;</span><br><span class="line">  name: <span class="string">'my-file.jpg'</span>, <span class="comment">// file name</span></span><br><span class="line">  type: <span class="string">'image/jpeg'</span>, <span class="comment">// file type</span></span><br><span class="line">  data: blob, <span class="comment">// file blob</span></span><br><span class="line">  source: <span class="string">'Local'</span>, <span class="comment">// optional, sets what added the file, for example, Instagram</span></span><br><span class="line">  isRemote: <span class="literal">false</span> <span class="comment">// optional, set to true if actual file is not in the browser, but on some remote server, like when using uppy-server + Instagram, for example</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>addFile</code> throws an error if the file cannot be added, either because <code>onBeforeFileAdded(file)</code> threw an error, or because <code>uppy.opts.restrictions</code> checks failed.</p>
+<p>If <code>uppy.opts.autoProceed === true</code>, Uppy will begin uploading automatically when files are added.</p>
+<h3 id="uppy-removeFile-fileID"><a href="#uppy-removeFile-fileID" class="headerlink" title="uppy.removeFile(fileID)"></a><code>uppy.removeFile(fileID)</code></h3><p>Remove a file from Uppy.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.removeFile(<span class="string">'uppyteamkongjpg1501851828779'</span>)</span><br></pre></td></tr></table></figure>
+<p>Removing a file that is already being uploaded cancels that upload.</p>
+<h3 id="uppy-getFile-fileID"><a href="#uppy-getFile-fileID" class="headerlink" title="uppy.getFile(fileID)"></a><code>uppy.getFile(fileID)</code></h3><p>Get a specific file object by its ID.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> file = uppy.getFile(<span class="string">'uppyteamkongjpg1501851828779'</span>)</span><br><span class="line"></span><br><span class="line">file.id        <span class="comment">// 'uppyteamkongjpg1501851828779'</span></span><br><span class="line">file.name      <span class="comment">// 'nature.jpg'</span></span><br><span class="line">file.extension <span class="comment">// '.jpg'</span></span><br><span class="line">file.type      <span class="comment">// 'image/jpeg'</span></span><br><span class="line">file.data      <span class="comment">// the Blob object</span></span><br><span class="line">file.size      <span class="comment">// 3947642 (returns 'N/A' if size cannot be determined)</span></span><br><span class="line">file.preview   <span class="comment">// value that can be used to populate "src" attribute of an "img" tag</span></span><br></pre></td></tr></table></figure>
+<h3 id="uppy-getFiles"><a href="#uppy-getFiles" class="headerlink" title="uppy.getFiles()"></a><code>uppy.getFiles()</code></h3><p>Get an array of all file objects in Uppy. See <a href="#uppy-getFile-fileID">uppy.getFile()</a> for an example of the file object format.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> prettyBytes = <span class="built_in">require</span>(<span class="string">'pretty-bytes'</span>)</span><br><span class="line"><span class="keyword">const</span> items = uppy.getFiles().map(<span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">  <span class="string">`&lt;li&gt;<span class="subst">$&#123;file.name&#125;</span> - <span class="subst">$&#123;prettyBytes(file.size)&#125;</span>&lt;/li&gt;`</span></span><br><span class="line">).join(<span class="string">''</span>)</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.file-list'</span>).innerHTML = <span class="string">`&lt;ul&gt;<span class="subst">$&#123;items&#125;</span>&lt;/ul&gt;`</span></span><br></pre></td></tr></table></figure>
+<h3 id="uppy-upload"><a href="#uppy-upload" class="headerlink" title="uppy.upload()"></a><code>uppy.upload()</code></h3><p>Start uploading selected files.</p>
+<p>Returns a Promise <code>result</code> that resolves with an object containing two arrays of uploaded files:</p>
+<ul>
+<li><code>result.successful</code> - Files that were uploaded successfully.</li>
+<li><code>result.failed</code> - Files that did not upload successfully. These file objects will have a <code>.error</code> property describing what went wrong.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.upload().then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.info(<span class="string">'Successful uploads:'</span>, result.successful)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (result.failed.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'Errors:'</span>)</span><br><span class="line">    result.failed.forEach(<span class="function">(<span class="params">file</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(file.error)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="uppy-setState-patch"><a href="#uppy-setState-patch" class="headerlink" title="uppy.setState(patch)"></a><code>uppy.setState(patch)</code></h3><p>Update Uppy’s internal state. Usually this method is called internally, but in some cases it might be useful to alter something directly, especially when implementing your own plugins.</p>
+<p>Uppy’s default state on initialization:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  plugins: &#123;&#125;,</span><br><span class="line">  files: &#123;&#125;,</span><br><span class="line">  currentUploads: &#123;&#125;,</span><br><span class="line">  capabilities: &#123;</span><br><span class="line">    resumableUploads: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  totalProgress: <span class="number">0</span>,</span><br><span class="line">  meta: <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.opts.meta),</span><br><span class="line">  info: &#123;</span><br><span class="line">    isHidden: <span class="literal">true</span>,</span><br><span class="line">    type: <span class="string">'info'</span>,</span><br><span class="line">    message: <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Updating state:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.setState(&#123;</span><br><span class="line">  smth: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>State in Uppy is considered to be immutable. When updating values, it’s your responsibility to not mutate them, but instead create copies. See <a href="http://redux.js.org/docs/recipes/UsingObjectSpreadOperator.html" target="_blank" rel="noopener">Redux docs</a> for more info on this. Here’s an example from Uppy.Core that updates progress for a particular file in state:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// We use Object.assign(&#123;&#125;, obj) to create a copy of `obj`.</span></span><br><span class="line"><span class="keyword">const</span> updatedFiles = <span class="built_in">Object</span>.assign(&#123;&#125;, uppy.getState().files)</span><br><span class="line"><span class="comment">// We use Object.assign(&#123;&#125;, obj, update) to create an altered copy of `obj`.</span></span><br><span class="line"><span class="keyword">const</span> updatedFile = <span class="built_in">Object</span>.assign(&#123;&#125;, updatedFiles[fileID], &#123;</span><br><span class="line">  progress: <span class="built_in">Object</span>.assign(&#123;&#125;, updatedFiles[fileID].progress, &#123;</span><br><span class="line">    bytesUploaded: data.bytesUploaded,</span><br><span class="line">    bytesTotal: data.bytesTotal,</span><br><span class="line">    percentage: <span class="built_in">Math</span>.floor((data.bytesUploaded / data.bytesTotal * <span class="number">100</span>).toFixed(<span class="number">2</span>))</span><br><span class="line">  &#125;)</span><br><span class="line">))</span><br><span class="line">updatedFiles[data.id] = updatedFile</span><br><span class="line">uppy.setState(&#123;<span class="attr">files</span>: updatedFiles&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="uppy-getState"><a href="#uppy-getState" class="headerlink" title="uppy.getState()"></a><code>uppy.getState()</code></h3><p>Returns the current state from the <a href="#store-defaultStore">Store</a>.</p>
+<h3 id="uppy-setFileState-fileID-state"><a href="#uppy-setFileState-fileID-state" class="headerlink" title="uppy.setFileState(fileID, state)"></a><code>uppy.setFileState(fileID, state)</code></h3><p>Update the state for a single file. This is mostly useful for plugins that may want to store data on file objects, or that need to pass file-specific configuration to other plugins that support it.</p>
+<p><code>fileID</code> is the string file ID. <code>state</code> is an object that will be merged into the file’s state object.</p>
+<h3 id="uppy-setMeta-data"><a href="#uppy-setMeta-data" class="headerlink" title="uppy.setMeta(data)"></a><code>uppy.setMeta(data)</code></h3><p>Alters global <code>meta</code> object is state, the one that can be set in Uppy options and gets merged with all newly added files. Calling <code>setMeta</code> will also merge newly added meta data with previously selected files.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.setMeta(&#123; <span class="attr">resize</span>: <span class="number">1500</span>, <span class="attr">token</span>: <span class="string">'ab5kjfg'</span> &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="uppy-setFileMeta-fileID-data"><a href="#uppy-setFileMeta-fileID-data" class="headerlink" title="uppy.setFileMeta(fileID, data)"></a><code>uppy.setFileMeta(fileID, data)</code></h3><p>Updated metadata for a specific file.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.setFileMeta(<span class="string">'myfileID'</span>, &#123; <span class="attr">resize</span>: <span class="number">1500</span> &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="uppy-reset"><a href="#uppy-reset" class="headerlink" title="uppy.reset()"></a><code>uppy.reset()</code></h3><p>Stop all uploads in progress and clear file selection, set progress to 0. Basically, return things to the way they were before any user input.</p>
+<h3 id="uppy-close"><a href="#uppy-close" class="headerlink" title="uppy.close()"></a><code>uppy.close()</code></h3><p>Uninstall all plugins and close down this Uppy instance. Also runs <code>uppy.reset()</code> before uninstalling.</p>
+<h3 id="uppy-log"><a href="#uppy-log" class="headerlink" title="uppy.log()"></a><code>uppy.log()</code></h3><h4 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h4><ul>
+<li><strong>message</strong> <em>{string}</em></li>
+<li><strong>type</strong> <em>{string=}</em> <code>error</code> or <code>warning</code></li>
+</ul>
+<p>Logs stuff to console, only if <code>uppy.opts.debug</code> is set to true. Silent in production.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.log(<span class="string">'[Dashboard] adding files...'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="uppy-info"><a href="#uppy-info" class="headerlink" title="uppy.info()"></a><code>uppy.info()</code></h3><h4 id="Parameters-1"><a href="#Parameters-1" class="headerlink" title="Parameters"></a>Parameters</h4><ul>
+<li><strong>message</strong> <em>{(string|object)}</em> — <code>&#39;info message&#39;</code> or <code>{ message: &#39;Oh no!&#39;, details: &#39;File couldn’t be uploaded&#39; }</code></li>
+<li><strong>type</strong> <em>{string} [type=’info’]</em> — <code>info</code>, <code>warning</code>, <code>success</code> or <code>error</code></li>
+<li><strong>duration</strong> <em>{number} [duration = 3000]</em> — in milliseconds</li>
+</ul>
+<p>Sets a message in state, with optional details, that can be shown by notification UI plugins. Currently that means just the <a href="/docs/informer/">Informer</a> plugin, included by default in Dashboard.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.info(<span class="string">'Oh my, something good happened!'</span>, <span class="string">'success'</span>, <span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.info(&#123;</span><br><span class="line">    message: <span class="string">'Oh no, something bad happened!'</span>,</span><br><span class="line">    details: <span class="string">'File couldn’t be uploaded because there’s no internet connection'</span>,</span><br><span class="line">  &#125;, <span class="string">'error'</span>, <span class="number">5000</span>)</span><br></pre></td></tr></table></figure>
+<p><code>info-visible</code> and <code>info-hidden</code> events are emitted when this info message should be visible or hidden.</p>
+<h3 id="uppy-on-39-event-39-action"><a href="#uppy-on-39-event-39-action" class="headerlink" title="uppy.on(&#39;event&#39;, action)"></a><code>uppy.on(&#39;event&#39;, action)</code></h3><p>Subscribe to an uppy-event. See below for the full list of events.</p>
+<h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><p>Uppy exposes events that you can subscribe to in your app:</p>
+<h3 id="file-added"><a href="#file-added" class="headerlink" title="file-added"></a><code>file-added</code></h3><p>Fired each time file is added.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">uppy.on(<span class="string">'file-added'</span>, (file) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Added file'</span>, file)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="file-removed"><a href="#file-removed" class="headerlink" title="file-removed"></a><code>file-removed</code></h3><p>Fired each time file is removed.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">uppy.on(<span class="string">'file-removed'</span>, (file) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Removed file'</span>, file)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="upload"><a href="#upload" class="headerlink" title="upload"></a><code>upload</code></h3><p>Fired when upload starts.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">uppy.on(<span class="string">'upload'</span>, (data) =&gt; &#123;</span><br><span class="line">  <span class="comment">// data object consists of `id` with upload id and `fileIDs` array</span></span><br><span class="line">  <span class="comment">// with file ids in current upload</span></span><br><span class="line">  <span class="comment">// data: &#123; id, fileIDs &#125;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Starting upload <span class="subst">$&#123;id&#125;</span> for files <span class="subst">$&#123;fileIDs&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="upload-progress"><a href="#upload-progress" class="headerlink" title="upload-progress"></a><code>upload-progress</code></h3><p>Fired each time file upload progress is available:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">uppy.on(<span class="string">'upload-progress'</span>, (file, progress) =&gt; &#123;</span><br><span class="line">  <span class="comment">// file: &#123; id, name, type, ... &#125;</span></span><br><span class="line">  <span class="comment">// progress: &#123; uploader, bytesUploaded, bytesTotal &#125;</span></span><br><span class="line">  <span class="built_in">console</span>.log(file.id, progress.bytesUploaded, progress.bytesTotal)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="upload-success"><a href="#upload-success" class="headerlink" title="upload-success"></a><code>upload-success</code></h3><p>Fired each time a single upload is complete.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">uppy.on(<span class="string">'upload-success'</span>, (file, resp, uploadURL) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(file.name, uploadURL)</span><br><span class="line">  <span class="keyword">var</span> img = <span class="keyword">new</span> Image()</span><br><span class="line">  img.width = <span class="number">300</span></span><br><span class="line">  img.alt = fileId</span><br><span class="line">  img.src = uploadURL</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(img)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="complete"><a href="#complete" class="headerlink" title="complete"></a><code>complete</code></h3><p>Fired when all uploads are complete.</p>
+<p>The <code>result</code> parameter is an object with arrays of <code>successful</code> and <code>failed</code> files, just like in <a href="#uppy-upload"><code>uppy.upload()</code></a>’s return value.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">uppy.on(<span class="string">'complete'</span>, (result) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'successful files:'</span>, result.successful)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'failed files:'</span>, result.failed)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="error"><a href="#error" class="headerlink" title="error"></a><code>error</code></h3><p>Fired when Uppy fails to upload/encode the whole upload. That error is then set to <code>uppy.getState().error</code>.</p>
+<h3 id="upload-error"><a href="#upload-error" class="headerlink" title="upload-error"></a><code>upload-error</code></h3><p>Fired when an error occures with a specific file:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">uppy.on(<span class="string">'upload-error'</span>, (file, error) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'error with file:'</span>, file.id)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'error message:'</span>, error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="info-visible"><a href="#info-visible" class="headerlink" title="info-visible"></a><code>info-visible</code></h3><p>Fired when “info” message should be visible in the UI. By default <code>Informer</code> plugin is displaying these messages (enabled by default in <code>Dashboard</code> plugin). You can use this event to show messages in your custom UI:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">uppy.on(<span class="string">'info-visible'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> info = uppy.getState().info</span><br><span class="line">  <span class="comment">// info: &#123;</span></span><br><span class="line">  <span class="comment">//  isHidden: false,</span></span><br><span class="line">  <span class="comment">//  type: 'error',</span></span><br><span class="line">  <span class="comment">//  message: 'Failed to upload',</span></span><br><span class="line">  <span class="comment">//  details: 'Error description'</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  alert(<span class="string">`<span class="subst">$&#123;info.message&#125;</span> <span class="subst">$&#123;info.details&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="info-hidden"><a href="#info-hidden" class="headerlink" title="info-hidden"></a><code>info-hidden</code></h3><p>Fired when “info” message should be hidden in the UI. See <a href="#info-visible"><code>info-visible</code></a>.</p>
+
+    
+    <div class="footer">Caught a mistake or want to contribute to the documentation?
+       <a href="https://github.com/transloadit/uppy/blob/master/website/src/docs/uppy.md" rel="noreferrer noopener" target="_blank">Edit/fork this page directly on Github</a>!
+    </div>
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

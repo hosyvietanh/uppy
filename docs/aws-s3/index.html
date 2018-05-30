@@ -1,0 +1,521 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AwsS3 — Uppy File Uploader</title>
+    <meta charset="utf-8">
+    <meta name="title" content="AwsS3 — Uppy File Uploader">
+    <meta name="description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let&#39;s you worry about more important problems than building a file uploader.
+">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/docs/aws-s3/index.html">
+    <meta property="og:title" content="AwsS3 — Uppy File Uploader">
+    <meta name="twitter:title" content="AwsS3 — Uppy File Uploader">
+    <meta name="twitter:description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let's you worry about more important problems than building a file uploader.
+">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social.jpg">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social.jpg">
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy File Uploader" href="/atom.xml">
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto+Mono" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poiret+One:400" rel="stylesheet">
+    <script>
+      window.PAGE_TYPE = "docs"
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="page-inner">
+    <div class="page">
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <a id="logo" class="MainLogo" href="/">
+          <img class="MainLogo-img" src="/images/logos/uppy-dog-head-arrow.svg">
+          <span class="MainLogo-text">Uppy File Uploader</span>
+        </a>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+          </ul>
+        </nav>
+
+        <a href="https://github.com/transloadit/uppy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#e02177; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          
+    <div class="Sidebar js-Sidebar">
+  <ul class="main-menu">
+    <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+  </ul>
+  <div class="list">
+    <h2>
+      
+        <a href="/docs">Docs</a>
+      
+    </h2>
+    <ul class="menu-root">
+      
+        
+        
+        
+          <li>
+            <a href="/docs/" class="sidebar-link">Getting Started</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/uppy/" class="sidebar-link">Uppy</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/server/" class="sidebar-link">Uppy Server</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/stores/" class="sidebar-link">Custom Stores</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/contributing.html" class="sidebar-link">Contributing</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/stats/" class="sidebar-link">Stats</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/plugins/">Plugins</a></h3>
+          </li>
+          <li>
+            <a href="/docs/plugins/" class="sidebar-link">List & Common Options</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/writing-plugins/" class="sidebar-link">Writing Plugins</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dashboard/" class="sidebar-link">Dashboard</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dragdrop/" class="sidebar-link">DragDrop</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/statusbar/" class="sidebar-link">StatusBar</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/progressbar/" class="sidebar-link">ProgressBar</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/informer/" class="sidebar-link">Informer</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/fileinput/" class="sidebar-link">FileInput</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/webcam/" class="sidebar-link">Webcam</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/tus/" class="sidebar-link">Tus</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/form/" class="sidebar-link">Form</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/xhrupload/" class="sidebar-link">XHRUpload</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/aws-s3/" class="sidebar-link current">AwsS3</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/aws-s3-multipart/" class="sidebar-link">AwsS3Multipart</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/transloadit/" class="sidebar-link">Transloadit</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/golden-retriever/" class="sidebar-link">GoldenRetriever</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/providers/">Remote Providers</a></h3>
+          </li>
+          <li>
+            <a href="/docs/providers/" class="sidebar-link">Provider Plugins</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/dropbox/" class="sidebar-link">Dropbox</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/google-drive/" class="sidebar-link">GoogleDrive</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/instagram/" class="sidebar-link">Instagram</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/url/" class="sidebar-link">Url</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <h3><a href="/docs/react/">React Components</a></h3>
+          </li>
+          <li>
+            <a href="/docs/react/" class="sidebar-link">Introduction</a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/statusbar/" class="sidebar-link">&lt;StatusBar /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dragdrop/" class="sidebar-link">&lt;DragDrop /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/progressbar/" class="sidebar-link">&lt;ProgressBar /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dashboard/" class="sidebar-link">&lt;Dashboard /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/react/dashboard-modal/" class="sidebar-link">&lt;DashboardModal /></a>
+          </li>
+        
+      
+        
+        
+        
+          <li>
+            <a href="/docs/redux.html" class="sidebar-link">Redux</a>
+          </li>
+        
+      
+    </ul>
+    <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+
+<div class="Content js-Content docs with-sidebar">
+    <h1>AwsS3</h1>
+    <p>The <code>AwsS3</code> plugin can be used to upload files directly to an S3 bucket.<br>Uploads can be signed using <a href="/docs/server/index.html">uppy-server</a> or a custom signing function.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> AwsS3 = <span class="built_in">require</span>(<span class="string">'uppy/lib/plugins/AwsS3'</span>)</span><br><span class="line"><span class="keyword">const</span> ms = <span class="built_in">require</span>(<span class="string">'ms'</span>)</span><br><span class="line"></span><br><span class="line">uppy.use(AwsS3, &#123;</span><br><span class="line">  limit: <span class="number">2</span>,</span><br><span class="line">  timeout: ms(<span class="string">'1 minute'</span>),</span><br><span class="line">  host: <span class="string">'https://uppy-server.myapp.com/'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>There are broadly two ways to upload to S3 in a browser. A server can generate a presigned URL for a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html" target="_blank" rel="noopener">PUT upload</a>, or a server can generate form data for a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOST.html" target="_blank" rel="noopener">POST upload</a>. uppy-server uses a POST upload. See <a href="#post-uploads">POST uPloads</a> for some caveats if you would like to use POST uploads without uppy-server. See <a href="#example-presigned-url">Generating a presigned upload URL server-side</a> for an example of a PUT upload.</p>
+<p>There is also a separate plugin for S3 Multipart uploads. Multipart in this sense is Amazon’s proprietary chunked, resumable upload mechanism for large files. See the <a href="/docs/aws-s3-multipart">AwsS3Multipart</a> documentation.</p>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><h3 id="id-39-AwsS3-39"><a href="#id-39-AwsS3-39" class="headerlink" title="id: &#39;AwsS3&#39;"></a><code>id: &#39;AwsS3&#39;</code></h3><p>A unique identifier for this plugin. Defaults to <code>&#39;AwsS3&#39;</code>.</p>
+<h3 id="host"><a href="#host" class="headerlink" title="host"></a><code>host</code></h3><p>When using <a href="/docs/server/index.html">uppy-server</a> to sign S3 uploads, set this option to the root URL of the uppy-server.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.use(AwsS3, &#123;</span><br><span class="line">  host: <span class="string">'https://uppy-server.my-app.com/'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="getUploadParameters-file"><a href="#getUploadParameters-file" class="headerlink" title="getUploadParameters(file)"></a><code>getUploadParameters(file)</code></h3><blockquote>
+<p>Note: When using <a href="/docs/server/index.html">uppy-server</a> to sign S3 uploads, do not define this option.</p>
+</blockquote>
+<p>A function returning upload parameters for a file.<br>Parameters should be returned as an object, or a Promise for an object, with keys <code>{ method, url, fields, headers }</code>.</p>
+<p>The <code>method</code> field is the HTTP method to use for the upload.<br>This should be one of <code>PUT</code> or <code>POST</code>, depending on the type of upload used.</p>
+<p>The <code>url</code> field is the URL to send the upload request to.<br>When using a presigned PUT upload, this should be the URL to the S3 object including signing parameters in the query string.<br>When using a POST upload with a policy document, this should be the root URL of the bucket.</p>
+<p>The <code>fields</code> field is an object with form fields to send along with the upload request.<br>For presigned PUT uploads, this should be empty.</p>
+<p>The <code>headers</code> field is an object with request headers to send along with the upload request.</p>
+<h3 id="timeout-30-1000"><a href="#timeout-30-1000" class="headerlink" title="timeout: 30 * 1000"></a><code>timeout: 30 * 1000</code></h3><p>When no upload progress events have been received for this amount of milliseconds, assume the connection has an issue and abort the upload. This is passed through to <a href="/docs/xhrupload#timeout-30-1000">XHRUpload</a>; see its documentation page for details.<br>Set to <code>0</code> to disable this check.</p>
+<p>The default is 30 seconds.</p>
+<h3 id="limit-0"><a href="#limit-0" class="headerlink" title="limit: 0"></a><code>limit: 0</code></h3><p>Limit the amount of uploads going on at the same time. This is passed through to <a href="/docs/xhrupload#limit-0">XHRUpload</a>; see its documentation page for details.<br>Set to <code>0</code> to disable limiting.</p>
+<h3 id="locale"><a href="#locale" class="headerlink" title="locale: {}"></a><code>locale: {}</code></h3><p>Localize text that is shown to the user.</p>
+<p>The default English strings are:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">strings: &#123;</span><br><span class="line">  <span class="comment">// Shown in the StatusBar while the upload is being signed.</span></span><br><span class="line">  preparingUpload: <span class="string">'Preparing upload...'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="S3-Bucket-configuration"><a href="#S3-Bucket-configuration" class="headerlink" title="S3 Bucket configuration"></a>S3 Bucket configuration</h2><p>S3 buckets do not allow public uploads by default.<br>In order to allow Uppy to upload to a bucket directly, its CORS permissions need to be configured.</p>
+<p>CORS permissions can be found in the <a href="https://console.aws.amazon.com/s3/home" target="_blank" rel="noopener">S3 Management Console</a>.<br>Click the bucket that will receive the uploads, then go into the “Permissions” tab and select the “CORS configuration” button.<br>An XML document will be shown that contains the CORS configuration.</p>
+<p>Good practice is to use two CORS rules: one for viewing the uploaded files, and one for uploading files.</p>
+<p>Depending on which settings were enabled during bucket creation, AWS S3 may have defined a CORS rule that allows public reading already.<br>This rule looks like:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">CORSRule</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">AllowedOrigin</span>&gt;</span>*<span class="tag">&lt;/<span class="name">AllowedOrigin</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">AllowedMethod</span>&gt;</span>GET<span class="tag">&lt;/<span class="name">AllowedMethod</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">MaxAgeSeconds</span>&gt;</span>3000<span class="tag">&lt;/<span class="name">MaxAgeSeconds</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">CORSRule</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>If uploaded files should be publically viewable, but a rule like this is not present, add it.</p>
+<p>A different <code>&lt;CORSRule&gt;</code> is necessary to allow uploading.<br>This rule should come <em>before</em> the existing rule, because S3 only uses the first rule that matches the origin of the request.</p>
+<p>At minimum, the domain from which the uploads will happen must be whitelisted, and the definitions from the previous rule must be added:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">AllowedOrigin</span>&gt;</span>https://my-app.com<span class="tag">&lt;/<span class="name">AllowedOrigin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">AllowedMethod</span>&gt;</span>GET<span class="tag">&lt;/<span class="name">AllowedMethod</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MaxAgeSeconds</span>&gt;</span>3000<span class="tag">&lt;/<span class="name">MaxAgeSeconds</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>When using uppy-server, which generates a POST policy document, the following permissions must be granted:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">AllowedMethod</span>&gt;</span>POST<span class="tag">&lt;/<span class="name">AllowedMethod</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">AllowedHeader</span>&gt;</span>Authorization<span class="tag">&lt;/<span class="name">AllowedHeader</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">AllowedHeader</span>&gt;</span>x-amz-date<span class="tag">&lt;/<span class="name">AllowedHeader</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">AllowedHeader</span>&gt;</span>x-amz-content-sha256<span class="tag">&lt;/<span class="name">AllowedHeader</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">AllowedHeader</span>&gt;</span>content-type<span class="tag">&lt;/<span class="name">AllowedHeader</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>When using a presigned upload URL, the following permissions must be granted:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">AllowedMethod</span>&gt;</span>PUT<span class="tag">&lt;/<span class="name">AllowedMethod</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The final configuration should look something like the below:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">CORSConfiguration</span> <span class="attr">xmlns</span>=<span class="string">"http://s3.amazonaws.com/doc/2006-03-01/"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">CORSRule</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowedOrigin</span>&gt;</span>https://my-app.com<span class="tag">&lt;/<span class="name">AllowedOrigin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowedMethod</span>&gt;</span>GET<span class="tag">&lt;/<span class="name">AllowedMethod</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowedMethod</span>&gt;</span>POST<span class="tag">&lt;/<span class="name">AllowedMethod</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MaxAgeSeconds</span>&gt;</span>3000<span class="tag">&lt;/<span class="name">MaxAgeSeconds</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowedHeader</span>&gt;</span>Authorization<span class="tag">&lt;/<span class="name">AllowedHeader</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowedHeader</span>&gt;</span>x-amz-date<span class="tag">&lt;/<span class="name">AllowedHeader</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowedHeader</span>&gt;</span>x-amz-content-sha256<span class="tag">&lt;/<span class="name">AllowedHeader</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowedHeader</span>&gt;</span>content-type<span class="tag">&lt;/<span class="name">AllowedHeader</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">CORSRule</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">CORSRule</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowedOrigin</span>&gt;</span>*<span class="tag">&lt;/<span class="name">AllowedOrigin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowedMethod</span>&gt;</span>GET<span class="tag">&lt;/<span class="name">AllowedMethod</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MaxAgeSeconds</span>&gt;</span>3000<span class="tag">&lt;/<span class="name">MaxAgeSeconds</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">CORSRule</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">CORSConfiguration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>In-depth documentation about CORS rules is available on the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html" target="_blank" rel="noopener">AWS documentation site</a>.</p>
+<h2 id="POST-Uploads"><a href="#POST-Uploads" class="headerlink" title="POST Uploads"></a>POST Uploads</h2><p>uppy-server uses POST uploads by default, but you can also use them with your own endpoints. There are a few things to be aware of when doing so:</p>
+<ul>
+<li>The AwsS3 plugin attempts to read the <code>&lt;Location&gt;</code> XML tag from POST upload responses. S3 does not respond with an XML document by default. When generating the form data for POST uploads, you must set the <code>success_action_status</code> field to <code>201</code>.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// `s3` is an instance of the AWS JavaScript SDK's S3 client</span></span><br><span class="line">s3.createPresignedPost(&#123;</span><br><span class="line">  ...,</span><br><span class="line">  Fields: &#123;</span><br><span class="line">    ...,</span><br><span class="line">    success_action_status: <span class="string">'201'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="S3-Alternatives"><a href="#S3-Alternatives" class="headerlink" title="S3 Alternatives"></a>S3 Alternatives</h2><p>Many other object storage providers have an identical API to S3, so you can use the AwsS3 plugin with them. To use them with Uppy Server, you can set the <code>UPPYSERVER_AWS_ENDPOINT</code> variable to the endpoint of your preferred service.</p>
+<h3 id="DigitalOcean-Spaces"><a href="#DigitalOcean-Spaces" class="headerlink" title="DigitalOcean Spaces"></a>DigitalOcean Spaces</h3><p>For example, with DigitalOcean Spaces, you could do something like this:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> UPPYSERVER_AWS_ENDPOINT=<span class="string">"https://&#123;region&#125;.digitaloceanspaces.com"</span></span><br><span class="line"><span class="built_in">export</span> UPPYSERVER_AWS_BUCKET=<span class="string">"my-space-name"</span></span><br></pre></td></tr></table></figure>
+<p>The <code>{region}</code> string will be replaced by the contents of the <code>UPPYSERVER_AWS_REGION</code> environment variable.</p>
+<p>For a working example that you can run and play around with, see the <a href="https://github.com/transloadit/uppy/tree/master/examples/digitalocean-spaces" target="_blank" rel="noopener">digitalocean-spaces</a> folder in the Uppy repository.</p>
+<h3 id="Google-Cloud-Storage"><a href="#Google-Cloud-Storage" class="headerlink" title="Google Cloud Storage"></a>Google Cloud Storage</h3><p>For Google Cloud Storage, you need to take a few more steps. For the AwsS3 plugin to be able to upload to a GCS bucket, it needs the Interoperability setting enabled. You can enable the Interoperability setting and <a href="https://cloud.google.com/storage/docs/migrating#keys" target="_blank" rel="noopener">generate interoperable storage access keys</a> by going to <a href="https://console.cloud.google.com/storage" target="_blank" rel="noopener">Google Cloud Storage</a> » Settings » Interoperability. Then set the environment variables for Uppy Server like below:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> UPPYSERVER_AWS_ENDPOINT=<span class="string">"https://storage.googleapis.com"</span></span><br><span class="line"><span class="built_in">export</span> UPPYSERVER_AWS_BUCKET=<span class="string">"YOUR-GCS-BUCKET-NAME"</span></span><br><span class="line"><span class="built_in">export</span> UPPYSERVER_AWS_KEY=<span class="string">"GOOGxxxxxxxxx"</span> <span class="comment"># The Access Key</span></span><br><span class="line"><span class="built_in">export</span> UPPYSERVER_AWS_SECRET=<span class="string">"YOUR-GCS-SECRET"</span> <span class="comment"># The Secret</span></span><br></pre></td></tr></table></figure>
+<p>You do not need to configure the region with GCS.</p>
+<p>You also need to configure CORS differently. Unlike Amazon, Google does not offer a UI for CORS configurations. Instead an HTTP API must be used. If you haven’t done this already, see <a href="https://cloud.google.com/storage/docs/configuring-cors#Configuring-CORS-on-a-Bucket" target="_blank" rel="noopener">Configuring CORS on a Bucket</a> in the GCS documentation, or follow the below steps to do it using Google’s API playground.</p>
+<p>GCS has multiple CORS formats, both XML and JSON. Unfortunately their XML format is different from Amazon’s, so we can’t simply use the one from the <a href="#S3-Bucket-configuration">S3 Bucket configuration</a> section. Google appears to favour the JSON format, so we’ll use that.</p>
+<h4 id="JSON-CORS-Configuration"><a href="#JSON-CORS-Configuration" class="headerlink" title="JSON CORS Configuration"></a>JSON CORS Configuration</h4><p>The JSON format consists of an array of CORS configuration objects. An example using POST policy document uploads is shown here:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"cors"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"origin"</span>: [<span class="string">"https://my-app.com"</span>],</span><br><span class="line">      <span class="attr">"method"</span>: [<span class="string">"GET"</span>, <span class="string">"POST"</span>],</span><br><span class="line">      <span class="attr">"maxAgeSeconds"</span>: <span class="number">3000</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"origin"</span>: [<span class="string">"*"</span>],</span><br><span class="line">      <span class="attr">"method"</span>: [<span class="string">"GET"</span>],</span><br><span class="line">      <span class="attr">"maxAgeSeconds"</span>: <span class="number">3000</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Most AWS configurations should be fairly simple to port to this format. When using presigned <code>PUT</code> uploads, replace the <code>&quot;POST&quot;</code> method by <code>&quot;PUT&quot;</code> in the first entry.</p>
+<p>If you have the <a href="https://cloud.google.com/storage/docs/gsutil" target="_blank" rel="noopener">gsutil</a> command-line tool, you can apply this configuration using the <a href="https://cloud.google.com/storage/docs/configuring-cors#configure-cors-bucket" target="_blank" rel="noopener">gsutil cors</a> command.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gsutil cors <span class="built_in">set</span> THAT-FILE.json gs://BUCKET-NAME</span><br></pre></td></tr></table></figure>
+<p>Otherwise, you can manually apply it through the OAuth playground:</p>
+<ol>
+<li>Get a temporary API token from the <a href="https://developers.google.com/oauthplayground/" target="_blank" rel="noopener">Google OAuth2.0 playground</a><ol>
+<li>Select the “Cloud Storage JSON API v1” » “devstorage.full_control” scope</li>
+<li>Press “Authorize APIs” and allow access</li>
+</ol>
+</li>
+<li>Click “Step 3 - Configure request to API”</li>
+<li>Configure it like below:<ul>
+<li>HTTP Method: PATCH</li>
+<li>Request URI: <code>https://www.googleapis.com/storage/v1/b/YOUR_BUCKET_NAME</code></li>
+<li>Content-Type: application/json (should be the default)</li>
+<li>Press “Enter request body” and input your CORS configuration</li>
+</ul>
+</li>
+<li>Then, finally, press “Send the request”.</li>
+</ol>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p><a id="example-presigned-url"></a></p>
+<h3 id="Generating-a-presigned-upload-URL-server-side"><a href="#Generating-a-presigned-upload-URL-server-side" class="headerlink" title="Generating a presigned upload URL server-side"></a>Generating a presigned upload URL server-side</h3><p>The <code>getUploadParameters</code> function can return a Promise, so upload parameters can be prepared server-side.<br>That way, no private keys to the S3 bucket need to be shared on the client.<br>For example, there could be a PHP server endpoint that prepares a presigned URL for a file:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.use(AwsS3, &#123;</span><br><span class="line">  getUploadParameters (file) &#123;</span><br><span class="line">    <span class="comment">// Send a request to our PHP signing endpoint.</span></span><br><span class="line">    <span class="keyword">return</span> fetch(<span class="string">'/s3-sign.php'</span>, &#123;</span><br><span class="line">      method: <span class="string">'post'</span>,</span><br><span class="line">      <span class="comment">// Send and receive JSON.</span></span><br><span class="line">      headers: &#123;</span><br><span class="line">        accept: <span class="string">'application/json'</span>,</span><br><span class="line">        <span class="string">'content-type'</span>: <span class="string">'application/json'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      body: <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">        filename: file.name,</span><br><span class="line">        contentType: file.type</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// Parse the JSON response.</span></span><br><span class="line">      <span class="keyword">return</span> response.json()</span><br><span class="line">    &#125;).then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// Return an object in the correct shape.</span></span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        method: data.method,</span><br><span class="line">        url: data.url,</span><br><span class="line">        fields: data.fields</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>See the <a href="https://github.com/transloadit/uppy/tree/master/examples/aws-presigned-url" target="_blank" rel="noopener">aws-presigned-url example in the uppy repository</a> for a small example that implements both the server-side and the client-side.</p>
+<h3 id="Retrieving-presign-parameters-of-the-uploaded-file"><a href="#Retrieving-presign-parameters-of-the-uploaded-file" class="headerlink" title="Retrieving presign parameters of the uploaded file"></a>Retrieving presign parameters of the uploaded file</h3><p>Once the file is uploaded, it’s possible to retrieve the parameters that were<br>generated in <code>getUploadParameters(file)</code> via the <code>file.meta</code> field:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.on(<span class="string">'upload-success'</span>, (file, data) =&gt; &#123;</span><br><span class="line">  file.meta[<span class="string">'key'</span>] <span class="comment">// the S3 object key of the uploaded file</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+    
+    <div class="footer">Caught a mistake or want to contribute to the documentation?
+       <a href="https://github.com/transloadit/uppy/blob/master/website/src/docs/aws-s3.md" rel="noreferrer noopener" target="_blank">Edit/fork this page directly on Github</a>!
+    </div>
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

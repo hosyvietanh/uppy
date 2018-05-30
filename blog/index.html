@@ -1,0 +1,366 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Uppy File Uploader</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Uppy File Uploader">
+    <meta name="description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let&#39;s you worry about more important problems than building a file uploader.
+">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/blog/index.html">
+    <meta property="og:title" content="Uppy File Uploader">
+    <meta name="twitter:title" content="Uppy File Uploader">
+    <meta name="twitter:description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let's you worry about more important problems than building a file uploader.
+">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social.jpg">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social.jpg">
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy File Uploader" href="/atom.xml">
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto+Mono" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poiret+One:400" rel="stylesheet">
+    <script>
+      window.PAGE_TYPE = ""
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="page-inner">
+    <div class="page">
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <a id="logo" class="MainLogo" href="/">
+          <img class="MainLogo-img" src="/images/logos/uppy-dog-head-arrow.svg">
+          <span class="MainLogo-text">Uppy File Uploader</span>
+        </a>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+          </ul>
+        </nav>
+
+        <a href="https://github.com/transloadit/uppy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#e02177; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          <div class="Sidebar js-Sidebar is-blog">
+  <ul class="main-menu">
+      <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+  </ul>
+  <div class="list">
+      <h2>
+          Recent Posts
+          <a href="/atom.xml" rel="noreferrer noopener" target="_blank" style="vertical-align: middle; margin-left: 5px">
+              <img src="/images/feed.png" style="width:15px;height:15px">
+          </a>
+      </h2>
+      <ul>
+      
+          <li>
+              <a href="/blog/2018/04/0.24/" class="sidebar-link">Uppy 0.24: Refreshed Dashboard, StatusBar and Provider UI, revamped XHR Response Handling</a>
+          </li>
+      
+          <li>
+              <a href="/blog/2018/02/0.23/" class="sidebar-link">Uppy 0.23: Import from Url, refactored thumbnail generation, XHR bundle</a>
+          </li>
+      
+          <li>
+              <a href="/blog/2017/12/0.22/" class="sidebar-link">Uppy 0.22: Preact, Form, Improved Dashboard, Custom Stores</a>
+          </li>
+      
+          <li>
+              <a href="/blog/2017/11/0.21/" class="sidebar-link">Uppy 0.21: End to End Tests, Accessibility, Additional Security for Uppy Server</a>
+          </li>
+      
+          <li>
+              <a href="/blog/2017/10/0.20/" class="sidebar-link">Uppy 0.20: React, Retry & Time Travel</a>
+          </li>
+      
+          <li>
+              <a href="/blog/2017/09/0.19/" class="sidebar-link">Uppy 0.19: Tests, Informer details and better APIs</a>
+          </li>
+      
+          <li>
+              <a href="/blog/2017/09/0.18/" class="sidebar-link">Uppy 0.18: Dogumentation and The GoldenRetriever</a>
+          </li>
+      
+          <li>
+              <a href="/blog/2017/07/golden-retriever/" class="sidebar-link">The Golden Retriever: Making uploads survive browser crashes</a>
+          </li>
+      
+          <li>
+              <a href="/blog/2017/07/0.17/" class="sidebar-link">Uppy 0.17: Restrictions</a>
+          </li>
+      
+          <li>
+              <a href="/blog/2017/05/0.16/" class="sidebar-link">Uppy 0.16: Transloadit!</a>
+          </li>
+      
+      </ul>
+      <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+<div class="Content js-Content with-sidebar">
+  <h1 style="text-align: center; margin-bottom:.5em">The Uppy File Uploader Blog</h1>
+  
+    <div class="post">
+      <h2><a href="/blog/2018/04/0.24/">Uppy 0.24: Refreshed Dashboard, StatusBar and Provider UI, revamped XHR Response Handling</a></h2>
+      <h4>Apr 17, 2018</h4>
+      <div><p>Uppy 0.24.2 brings a refreshed UI in the Dashboard and StatusBar plugins, a synchronous <code>addFile()</code> method, a cancel button, style protections, documentation on writing your own Uppy plugin, revamped XHR response handling and tons of bugfixes.</p></div>
+      <a href="/blog/2018/04/0.24/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2018/02/0.23/">Uppy 0.23: Import from Url, refactored thumbnail generation, XHR bundle</a></h2>
+      <h4>Feb 12, 2018</h4>
+      <div><p>Hi all! We are back from holidays with a shiny new <code>0.23.0</code> release for you! It’s packed with a new <code>Url</code> plugin (imports files from urls), refactored <code>ThumbnailGenerator</code>, <code>Webcam</code> improvements and more.</p>
+<h2 id="Import-from-Url"><a href="#Import-from-Url" class="headerlink" title="Import from Url"></a>Import from Url</h2><p>Meet our new “Provider” plugin, <code>Url</code>. It’s simple, yet powerful: paste a link to any file on the web, and Uppy with Uppy Server will upload it wherever you need.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">uppy.use(Url, &#123; <span class="attr">target</span>: Dashboard, <span class="attr">host</span>: YOUR_UPPY_SERVER_URL &#125;)</span><br></pre></td></tr></table></figure>
+<figure class="wide"><video alt="Demo video showing Uppy with Url plugin that imports files from urls" controls autoplay><source src="/images/blog/0.23/uppy-url-demo.mp4" type="video/mp4">Your browser does not support the video tag, you can <a href="/images/blog/0.23/uppy-url-demo.mp4">download the video</a> to watch it.</video></figure></div>
+      <a href="/blog/2018/02/0.23/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2017/12/0.22/">Uppy 0.22: Preact, Form, Improved Dashboard, Custom Stores</a></h2>
+      <h4>Dec 23, 2017</h4>
+      <div><p><strong>Uppy is <a href="https://www.producthunt.com/posts/uppy-io" target="_blank" rel="noopener">featured on Product Hunt</a>! To our fellow hunters: welcome! Quick intro: Uppy is the next open source file uploader for web browsers. We’re very close to launching 1.0 and would love to get your feedback in, leave your thoughts on Product Hunt or start a discussion below.</strong></p>
+<p>Hi all! It’s New Year and Christmas time, and this year Santa is brining you Uppy <code>0.22</code> 🎁 This release packs a lot of neat stuff, but it also breaks things in quite a few places, so please read on.</p>
+<p>And, if you are celebrating, happy holidays from the Uppy Team! 🎄</p></div>
+      <a href="/blog/2017/12/0.22/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2017/11/0.21/">Uppy 0.21: End to End Tests, Accessibility, Additional Security for Uppy Server</a></h2>
+      <h4>Nov 24, 2017</h4>
+      <div><p>Hi all! We’ve been busy with Halloween, but also another release, so here is Uppy <code>0.21</code>! This one improves accessibility, features new end-to-end tests and improved security in Uppy Server.</p></div>
+      <a href="/blog/2017/11/0.21/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2017/10/0.20/">Uppy 0.20: React, Retry & Time Travel</a></h2>
+      <h4>Oct 5, 2017</h4>
+      <div><p>We are proud to present Uppy <code>0.20</code>. This one focuses on React and Redux support, adding storage expirations to <code>GoldenRetriever</code> and upload retries. Enjoy!</p>
+<h2 id="Uppy-React-components"><a href="#Uppy-React-components" class="headerlink" title="Uppy React components"></a>Uppy React components</h2><p>Uppy now ships with React components! We’ve been exploring different approaches to React components for several months, so we’re excited to finally have them in ✨ There are components for each of Uppy’s UI elements, like the Dashboard and the StatusBar.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> uppy = Uppy()</span><br><span class="line">uppy.use(Tus10, &#123; <span class="attr">endpoint</span>: <span class="string">'/upload'</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Dashboard = <span class="built_in">require</span>(<span class="string">'uppy/lib/react/Dashboard'</span>)</span><br><span class="line"><span class="keyword">const</span> Uploader = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;Dashboard</span><br><span class="line">    uppy=&#123;uppy&#125;</span><br><span class="line">    note=<span class="string">"Hey! It's a React component!"</span></span><br><span class="line">  /&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;Uploader /&gt;, document.querySelector('#uploader'))</span><br></pre></td></tr></table></figure></div>
+      <a href="/blog/2017/10/0.20/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2017/09/0.19/">Uppy 0.19: Tests, Informer details and better APIs</a></h2>
+      <h4>Sep 21, 2017</h4>
+      <div><p>Hello! The <code>0.19</code> release is about internal fixes, optimizations and refactoring, as well as some work on PRs that we’ll hopefully tell you about soon!</p>
+<h2 id="Jest-tests"><a href="#Jest-tests" class="headerlink" title="Jest tests"></a>Jest tests</h2><p>Thanks to our contributer, <a href="https://github.com/richardwillars" target="_blank" rel="noopener">@richardwillars</a>, and following the example set by Uppy Server, we’ve <a href="https://github.com/transloadit/uppy/pull/310" target="_blank" rel="noopener">switched to Jest</a> for Uppy’s unit tests, and added a bunch of new tests as well. And even more are being <a href="https://github.com/transloadit/uppy/pull/346" target="_blank" rel="noopener">added</a> as we speak!</p>
+<p>We’re also happy to report that <a href="https://github.com/transloadit/uppy-server/compare/3341a9592d0723fd9b58ec77d8c762f20b434704...d3c6f5b409d08f588d1704b77181e5c0342ca322" target="_blank" rel="noopener">more tests</a> have been added for Uppy Server.</p>
+<h2 id="Dashboard-APIs"><a href="#Dashboard-APIs" class="headerlink" title="Dashboard APIs"></a>Dashboard APIs</h2><p>We’ve exposed <code>show/hide/isOpen</code> APIs for the Dashboard UI plugin. Now you can open and close the modal dialog programmatically:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> modal = uppy.getPlugin(<span class="string">'Dashboard'</span>)</span><br><span class="line">modal.show()</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">button.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (modal.isOpen()) &#123;</span><br><span class="line">    modal.hide()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    modal.show()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Check out <a href="https://uppy.io/docs/dashboard/#Methods">the docs</a>.</p></div>
+      <a href="/blog/2017/09/0.19/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2017/09/0.18/">Uppy 0.18: Dogumentation and The GoldenRetriever</a></h2>
+      <h4>Sep 15, 2017</h4>
+      <div><p>Hi! Another month — a new Uppy release 🎉</p>
+<p><em>Note: current latest release is actually <code>0.19</code>, but this post got delayed, so we are publishing it first. <code>0.19</code> post is coming next.</em></p>
+<h2 id="New-documentation"><a href="#New-documentation" class="headerlink" title="New documentation"></a>New documentation</h2><p>Documentation for Uppy has been re-written, and now features chapters on Uppy’s settings and API, using various plugins, and running Uppy Server. Check it out: <a href="https://uppy.io/docs/">https://uppy.io/docs/</a>. More chapters to come!</p>
+<h2 id="The-GoldenRetriever"><a href="#The-GoldenRetriever" class="headerlink" title="The GoldenRetriever"></a>The GoldenRetriever</h2><p>The GoldenRetriever has been released as a public beta. For details, please refer to the previous post, <a href="https://uppy.io/blog/2017/07/golden-retriever/">The GoldenRetriever: Making uploads survive browser crashes</a>, but the gist is: when enabled, this plugin will save uppy-state to localStorage on every change, and then if your browser crashes, or you accidentaly navigate away from a tab,later when you return, your uploads will resume like nothing happened. Spoiler: it uses Service Workers and IndexedDB.</p>
+<p><img class="border" src="/images/blog/0.18/golden-retriever.jpg"></p></div>
+      <a href="/blog/2017/09/0.18/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2017/07/golden-retriever/">The Golden Retriever: Making uploads survive browser crashes</a></h2>
+      <h4>Jul 31, 2017</h4>
+      <div><p><strong>TL;DR:</strong> We’re on a mission to improve file uploading on the web. We released <a href="https://tus.io" target="_blank" rel="noopener">tus</a>: the open protocol for resumable file uploads, as well as Uppy: the next open source file uploader for web browsers. Uppy uses tus, which makes it resilient to poor network conditions and crashing servers. Today we’re launching an Uppy feature that also makes it resilient to browser crashes, which we believe is an industry first. We’re sharing a quick <a href="/blog/2017/07/golden-retriever/#demo">demo</a> video, a bit of <a href="/blog/2017/07/golden-retriever/#uppy">background</a>, <a href="/blog/2017/07/golden-retriever/#how">how</a> exactly we achieved this, and how you can <a href="/blog/2017/07/golden-retriever/#try">try</a> it yourself.</p>
+<p>***</p>
+<p>Don’t you just hate it when you’re about to share the perfect photos from your trip to Iceland, and halfway through, your cat jumps on the keyboard and trashes your browser? Or the battery in your laptop dies? Or you accidentally close the tab or navigate away? We hate that too!</p>
+<p>If action games have had checkpoints since 1687 — why can’t file uploaders? Well, as it turns out, they can! We found a way to get those Iceland pics into the hands of your loved ones with near-zero levels of frustration, even after a dreaded Blue Screen of Death! (if that is still a thing ;)</p></div>
+      <a href="/blog/2017/07/golden-retriever/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2017/07/0.17/">Uppy 0.17: Restrictions</a></h2>
+      <h4>Jul 11, 2017</h4>
+      <div><p>Hi! We are back with yet another Uppy release that contains some often requested features such as file restrictions and better file type detection, alongside a brand new Instagram plugin, UI improvements and more!</p></div>
+      <a href="/blog/2017/07/0.17/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2017/05/0.16/">Uppy 0.16: Transloadit!</a></h2>
+      <h4>May 24, 2017</h4>
+      <div><p>Hello there! Missed us much? :) We’re chomping at the bits, at least, to tell you about our latest release. This one has been in the works longer than usual, but then again, it’s also way cooler than usual, so let’s get right to it.</p></div>
+      <a href="/blog/2017/05/0.16/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2017/03/0.15/">Uppy 0.15: Spring cleanup</a></h2>
+      <h4>Mar 15, 2017</h4>
+      <div><p>Spring is in the air and Uppy is feeling particularly full of life. In this post about Uppy 0.15, we have some exciting stories about <code>babel-plugin-yo-yoify</code>, progress event throttling, and new friends.</p></div>
+      <a href="/blog/2017/03/0.15/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2017/02/0.14/">Uppy 0.14: Responsive Dashboard, Standalone & Pluggable Server, Dropbox</a></h2>
+      <h4>Feb 13, 2017</h4>
+      <div><p>Hi! Hope y’all have had great holidays! 🎄 Which reminds us, we still have a gift for you — and we even wrapped it in a package (npm). Look inside and you’ll find that Uppy 0.14!</p>
+<p>“But wait”, you might ask, “where is the 0.13 release that we have been waiting for?”</p>
+<p>Well, let’s just say we are superstitious like that. You won’t see us coding under any ladders either! And we were also in the middle of the holiday season, so we decided to call 0.13 “The Release That Wasn’t” and skip it.</p>
+<p>Let’s take a look at what Uppy 0.14 has in store for you.</p></div>
+      <a href="/blog/2017/02/0.14/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2016/12/0.12/">Uppy 0.12: Responsive. Cancel. Feedback. Refreshed ES6 server</a></h2>
+      <h4>Dec 7, 2016</h4>
+      <div><p>Hello! Here’s what’s new in Uppy 0.12.</p>
+<h2 id="Dashboard-local-mode-and-multipart-uploads-support-in-UI"><a href="#Dashboard-local-mode-and-multipart-uploads-support-in-UI" class="headerlink" title="Dashboard: local mode and multipart uploads support in UI"></a>Dashboard: local mode and multipart uploads support in UI</h2><p>Prior to this release, we’ve optimized the Dashboard for usage with multiple “acquire plugins”, say Webcam + Google Drive. But sometimes all you need is “local disk” with drag &amp; drop support, nice file previews and progress. And now the Dashboard UI works great with that use case out of the box. When you don’t add (.use) any acquire plugins, it looks like this:</p>
+<figure class="wide"><img src="/images/blog/0.12/uppy-dashboard-local.jpg"></figure>
+
+<p>Also (prior to this release), we’ve built the Dashboard to work well with <a href="http://tus.io" target="_blank" rel="noopener">tus resumable uploads</a>. That’s why you can pause and resume individual uploads, as well as all at once. But if you use an endpoint that is not yet ready for the future and upload resumability (here’s <a href="https://github.com/tus/tus-node-server" target="_blank" rel="noopener">how</a> to <a href="https://github.com/tus/tusd" target="_blank" rel="noopener">fix that</a>, by the way), the Dashboard UI will show regular “cancel” buttons instead of pause/resume.</p>
+<p>Dashboard is gradually becoming more mobile friendly too, but we’ll be saving some of that stuff for the next release.</p>
+<h2 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h2><p>Uppy server has undergone a quite a few changes, including the build setup:</p>
+<ul>
+<li>We are using ES2015, transpiling to ES5 with Babel.</li>
+<li>Added linting, lint-staged, pre-commit all that good stuff.</li>
+<li>Added <code>npm run release</code> command that publishes releases for us.</li>
+<li>Google Drive is working again on the Uppy Server side.</li>
+<li>Refactoring, error handling and more minor improvements.</li>
+</ul></div>
+      <a href="/blog/2016/12/0.12/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2016/11/0.11/">Uppy 0.11: StatusBar, research, https and API docs</a></h2>
+      <h4>Nov 15, 2016</h4>
+      <div><p>Hey everyone! It has been a while since we last shared some news about our progress and we can’t wait to let you know what’s up(py)!</p>
+<p>In October, we have been working hard to get Uppy 0.11 ready for release. This entailed, among other things, doing a write-up of our general architecture, bringing in a friend to look at what we’ve been up to, experimenting with Redux, and updating the Dashboard UI and website example.</p>
+<p>Here’s what we have been up to, in some more detail.</p></div>
+      <a href="/blog/2016/11/0.11/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2016/09/0.10/">Uppy 0.10: Getting together, the future, Google Drive UI, exposed events</a></h2>
+      <h4>Sep 28, 2016</h4>
+      <div><p>Hi! Another month has passed and we have just released a new version of Uppy. Here’s what we’ve been up to.</p>
+<h2 id="Thinking-about-the-future-🔮"><a href="#Thinking-about-the-future-🔮" class="headerlink" title="Thinking about the future 🔮"></a>Thinking about the future 🔮</h2><p>We have been spending quite a lot of time thinking about Uppy’s future and the direction in which we would like to take this project.  Our primary concern is making Uppy as flexible as possible as well as compatible with popular libraries, such as React and React Native.  We also want to make it easy to port Uppy to any environments or ecosystems that are not officially supported.</p>
+<p>We have done a lot of research. We created <a href="https://github.com/hedgerh/uppy-react" target="_blank" rel="noopener">prototypes of Uppy React components</a> and  we also created a new module that we like to call “Uppy Base.” <a href="https://github.com/hedgerh/uppy-base" target="_blank" rel="noopener"><code>uppy-base</code></a> is a thin module containing reusable functionality from some of our plugins that can be used in any ecosystem or environment, without being opinionated about the UI.</p></div>
+      <a href="/blog/2016/09/0.10/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2016/08/0.9.0/">Uppy 0.9: Making Progress, then pause & resume. Remote file uploads, Informer.</a></h2>
+      <h4>Aug 26, 2016</h4>
+      <div><p>We have just released Uppy 0.9.0. This release features some changes that we think you will be very excited about.  Let’s see what’s new!</p></div>
+      <a href="/blog/2016/08/0.9.0/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2016/08/0.8.0/">Uppy version 0.8 released: The Webcam Edition and Meta Data</a></h2>
+      <h4>Aug 17, 2016</h4>
+      <div><p>We have just released Uppy 0.8.0 and we can’t wait to tell you more about it. Along with various under-the-hood improvements, this release also contains some very visible upgrades. You can read below for further details.</p>
+<h2 id="Including-Meta-Data"><a href="#Including-Meta-Data" class="headerlink" title="Including Meta Data"></a>Including Meta Data</h2><p>While fetching your files, Uppy is now also able to supply some custom metadata to go along with them. So far, there are three components in place for that: Core API (<code>core:update-meta</code> event), <code>MetaData</code> plugin, and a new panel in Dashboard UI called File Card, which looks like this:</p>
+<p><img alt="metadata dashboard UI, editing file name, future size and adding description" src="/images/blog/0.8/metadata-dashboard.jpg" class="border"></p></div>
+      <a href="/blog/2016/08/0.8.0/">Continue reading ...</a>
+    </div>
+  
+    <div class="post">
+      <h2><a href="/blog/2016/07/uppy-begins/">Uppy: let’s teach an old dog some new tricks</a></h2>
+      <h4>Jul 15, 2016</h4>
+      <div><p>For the past six months, we have been working hard on uppy.io. We feel that it is high time we gave you a look behind the scenes: what are we working on, and why.</p>
+<p><img src="/images/blog/uppy-begins/uppy-dashboard.jpg"></p>
+<p>The way uploading works has not changed in a meaningful way since the days of our trusty old 56 kbit/s modems. Of course, files have gotten bigger and speeds have increased, but that is more or less all there is to say. If it were up to us – and we hope it is – that is all about to change.</p>
+<p>We at <a href="https://transloadit.com/" target="_blank" rel="noopener">Transloadit</a> are on a mission to change the way the world does uploading. To accomplish this, our first step has been to develop an open protocol for resumable file uploads, called <a href="http://tus.io/" target="_blank" rel="noopener">‘tus’</a>. Finally, that 2GB video upload from your smartphone doesn’t have to start over when your train passes through a tunnel! The protocol got <a href="https://news.ycombinator.com/item?id=10591348" target="_blank" rel="noopener">Hacker News excited</a> on several occasions and is being deployed by, among others, our friends at Vimeo. Now that a stable version 1.0 of ‘tus’ has been released, it is time to put it to the test. A protocol without real-world applications is nothing more than a meaningless document, after all.</p>
+<p>We are therefore excited to tell you about Uppy: the file uploader that will certainly fetch more than just your newspaper.</p></div>
+      <a href="/blog/2016/07/uppy-begins/">Continue reading ...</a>
+    </div>
+  
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

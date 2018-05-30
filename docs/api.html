@@ -1,0 +1,560 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Uppy File Uploader</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Uppy File Uploader">
+    <meta name="description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let&#39;s you worry about more important problems than building a file uploader.
+">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/docs/api.html">
+    <meta property="og:title" content="Uppy File Uploader">
+    <meta name="twitter:title" content="Uppy File Uploader">
+    <meta name="twitter:description" content="Sleek, modular file uploader that integrates seamlessly with any framework. It fetches files from local disk, Google Drive, Dropbox, Instagram, remote URLs, cameras and other exciting locations, and then uploads them to the final destination. It’s fast, easy to use and let's you worry about more important problems than building a file uploader.
+">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social.jpg">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social.jpg">
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy File Uploader" href="/atom.xml">
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto+Mono" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poiret+One:400" rel="stylesheet">
+    <script>
+      window.PAGE_TYPE = ""
+    </script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="page-inner">
+    <div class="page">
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <a id="logo" class="MainLogo" href="/">
+          <img class="MainLogo-img" src="/images/logos/uppy-dog-head-arrow.svg">
+          <span class="MainLogo-text">Uppy File Uploader</span>
+        </a>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://github.com/transloadit/uppy" class="nav-link">Github</a></li>
+
+          </ul>
+        </nav>
+
+        <a href="https://github.com/transloadit/uppy" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#e02177; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          
+<div class="Content js-Content ">
+    <h1></h1>
+    <p>-—<br>type: docs<br>order: 30    </p>
+<h2 id="title-“Generated-API”"><a href="#title-“Generated-API”" class="headerlink" title="title: “Generated API”"></a>title: “Generated API”</h2><h1 id="Uppy-Core-amp-Plugins"><a href="#Uppy-Core-amp-Plugins" class="headerlink" title="Uppy Core &amp; Plugins"></a>Uppy Core &amp; Plugins</h1><h2 id="Uppy"><a href="#Uppy" class="headerlink" title="Uppy"></a>Uppy</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L16-L795" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:16-795</a></p>
+<p>Main Uppy core</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>opts</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> general options, like locales, to show modal or not to show</li>
+</ul>
+<h3 id="updateAll"><a href="#updateAll" class="headerlink" title="updateAll"></a>updateAll</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L116-L122" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:116-122</a></p>
+<p>Iterate on all plugins and run <code>update</code> on them. Called each time state changes</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>state</code>  </li>
+</ul>
+<h3 id="setState"><a href="#setState" class="headerlink" title="setState"></a>setState</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L129-L135" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:129-135</a></p>
+<p>Updates state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>object</code> <strong>newState</strong> </li>
+<li><code>stateUpdate</code>  </li>
+</ul>
+<h3 id="getState"><a href="#getState" class="headerlink" title="getState"></a>getState</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L141-L145" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:141-145</a></p>
+<p>Returns current state</p>
+<h3 id="getFile"><a href="#getFile" class="headerlink" title="getFile"></a>getFile</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L331-L333" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:331-333</a></p>
+<p>Get a file object.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>fileID</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">string</a></strong> The ID of the file object to return.</li>
+</ul>
+<h3 id="actions"><a href="#actions" class="headerlink" title="actions"></a>actions</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L397-L535" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:397-535</a></p>
+<p>Registers listeners for all global actions, like:<br><code>file-add</code>, <code>file-remove</code>, <code>upload-progress</code>, <code>reset</code></p>
+<h3 id="use"><a href="#use" class="headerlink" title="use"></a>use</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L560-L589" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:560-589</a></p>
+<p>Registers a plugin with Core</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>Plugin</code> <strong>Class</strong> object</li>
+<li><code>options</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> object that will be passed to Plugin later</li>
+<li><code>opts</code>  </li>
+</ul>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> self for chaining</p>
+<h3 id="getPlugin"><a href="#getPlugin" class="headerlink" title="getPlugin"></a>getPlugin</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L596-L606" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:596-606</a></p>
+<p>Find one Plugin by name</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>string</code>  name description</li>
+<li><code>name</code>  </li>
+</ul>
+<h3 id="iteratePlugins"><a href="#iteratePlugins" class="headerlink" title="iteratePlugins"></a>iteratePlugins</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L613-L617" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:613-617</a></p>
+<p>Iterate through all <code>use</code>d plugins</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>function</code>  method description</li>
+<li><code>method</code>  </li>
+</ul>
+<h3 id="removePlugin"><a href="#removePlugin" class="headerlink" title="removePlugin"></a>removePlugin</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L624-L635" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:624-635</a></p>
+<p>Uninstall and remove a plugin.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>instance</code> <strong><a href="#plugin">Plugin</a></strong> The plugin instance to remove.</li>
+</ul>
+<h3 id="close"><a href="#close" class="headerlink" title="close"></a>close</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L640-L650" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:640-650</a></p>
+<p>Uninstall all plugins and close down this Uppy instance.</p>
+<h3 id="info"><a href="#info" class="headerlink" title="info"></a>info</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L659-L686" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:659-686</a></p>
+<p>Set info message in <code>state.info</code>, so that UI plugins like <code>Informer</code><br>can display the message</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>msg</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">string</a></strong> Message to be displayed by the informer</li>
+<li><code>type</code>  </li>
+<li><code>duration</code>  </li>
+</ul>
+<h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L703-L720" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:703-720</a></p>
+<p>Logs stuff to console, only if <code>debug</code> is set to true. Silent in production.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>msg</code>  </li>
+<li><code>type</code>  </li>
+</ul>
+<p>Returns <strong>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a>)</strong> to log</p>
+<h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Core.js#L734-L748" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Core.js:734-748</a></p>
+<p>Initializes actions, installs all plugins (by iterating on them and calling <code>install</code>), sets options</p>
+<h2 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Plugin.js#L15-L105" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Plugin.js:15-105</a></p>
+<p>Boilerplate that all Plugins share - and should not be used<br>directly. It also shows which methods final plugins should implement/override,<br>this deciding on structure.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>main</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> Uppy core object</li>
+<li><code>object</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> with plugin options</li>
+</ul>
+<p>Returns <strong>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">string</a>)</strong> files or success/fail message</p>
+<h3 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Plugin.js#L49-L90" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Plugin.js:49-90</a></p>
+<p>Check if supplied <code>target</code> is a DOM element or an <code>object</code>.<br>If it’s an object — target is a plugin, and we search <code>plugins</code><br>for a plugin with same name and return its target.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>target</code> <strong>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a>)</strong> </li>
+<li><code>plugin</code>  </li>
+</ul>
+<h2 id="Utils"><a href="#Utils" class="headerlink" title="Utils"></a>Utils</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Dashboard/index.js#L14-L431" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Dashboard/index.js:14-431</a></p>
+<p><strong>Extends Plugin</strong></p>
+<p>Modal Dialog &amp; Dashboard</p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L43-L74" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:43-74</a></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>instance</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> of the plugin</li>
+<li><code>plugin</code>  </li>
+<li><code>opts</code>  </li>
+</ul>
+<h3 id="updateState"><a href="#updateState" class="headerlink" title="updateState"></a>updateState</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L79-L84" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:79-84</a></p>
+<p>Little shorthand to update the state with the plugin’s state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>newState</code>  </li>
+</ul>
+<h3 id="updateState-1"><a href="#updateState-1" class="headerlink" title="updateState"></a>updateState</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Webcam/index.js#L107-L112" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Webcam/index.js:107-112</a></p>
+<p>Little shorthand to update the state with my new state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>newState</code>  </li>
+</ul>
+<h3 id="getFolder"><a href="#getFolder" class="headerlink" title="getFolder"></a>getFolder</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L116-L137" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:116-137</a></p>
+<p>Based on folder ID, fetch a new folder and update it to state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>id</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> Folder id</li>
+<li><code>name</code>  </li>
+</ul>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise</a></strong> Folders/files in folder</p>
+<h3 id="getNextFolder"><a href="#getNextFolder" class="headerlink" title="getNextFolder"></a>getNextFolder</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L144-L147" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:144-147</a></p>
+<p>Fetches new folder</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>Folder</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> </li>
+<li><code>title</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> Folder title</li>
+<li><code>folder</code>  </li>
+</ul>
+<h3 id="logout"><a href="#logout" class="headerlink" title="logout"></a>logout</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L180-L194" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:180-194</a></p>
+<p>Removes session token on client side.</p>
+<h2 id="Utils-1"><a href="#Utils-1" class="headerlink" title="Utils"></a>Utils</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L17-L19" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:17-19</a></p>
+<p>A collection of small utility functions that help with dom manipulation, adding listeners,<br>promises and other good things.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>arr</code>  </li>
+</ul>
+<h3 id="constructor"><a href="#constructor" class="headerlink" title="constructor"></a>constructor</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L43-L74" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:43-74</a></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>instance</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> of the plugin</li>
+<li><code>plugin</code>  </li>
+<li><code>opts</code>  </li>
+</ul>
+<h3 id="updateState-2"><a href="#updateState-2" class="headerlink" title="updateState"></a>updateState</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L79-L84" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:79-84</a></p>
+<p>Little shorthand to update the state with the plugin’s state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>newState</code>  </li>
+</ul>
+<h3 id="updateState-3"><a href="#updateState-3" class="headerlink" title="updateState"></a>updateState</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Webcam/index.js#L107-L112" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Webcam/index.js:107-112</a></p>
+<p>Little shorthand to update the state with my new state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>newState</code>  </li>
+</ul>
+<h3 id="getFolder-1"><a href="#getFolder-1" class="headerlink" title="getFolder"></a>getFolder</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L116-L137" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:116-137</a></p>
+<p>Based on folder ID, fetch a new folder and update it to state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>id</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> Folder id</li>
+<li><code>name</code>  </li>
+</ul>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise</a></strong> Folders/files in folder</p>
+<h3 id="getNextFolder-1"><a href="#getNextFolder-1" class="headerlink" title="getNextFolder"></a>getNextFolder</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L144-L147" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:144-147</a></p>
+<p>Fetches new folder</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>Folder</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> </li>
+<li><code>title</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> Folder title</li>
+<li><code>folder</code>  </li>
+</ul>
+<h3 id="logout-1"><a href="#logout-1" class="headerlink" title="logout"></a>logout</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L180-L194" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:180-194</a></p>
+<p>Removes session token on client side.</p>
+<h2 id="Utils-2"><a href="#Utils-2" class="headerlink" title="Utils"></a>Utils</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L39-L419" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:39-419</a></p>
+<p>Class to easily generate generic views for plugins</p>
+<p>This class expects the plugin using to have the following attributes</p>
+<p>stateId {String} object key of which the plugin state is stored</p>
+<p>This class also expects the plugin instance using it to have the following<br>accessor methods.<br>Each method takes the item whose property is to be accessed<br>as a param</p>
+<p>isFolder</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" rel="noopener">Boolean</a></strong> for if the item is a folder or not<br>getItemData</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> that is format ready for uppy upload/download<br>getItemIcon</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> html instance of the item’s icon<br>getItemSubList</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">Array</a></strong> sub-items in the item. e.g a folder may contain sub-items<br>getItemName</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> display friendly name of the item<br>getMimeType</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> mime type of the item<br>getItemId</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> unique id of the item<br>getItemRequestPath</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> unique request path of the item when making calls to uppy server<br>getItemModifiedDate</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> or {String} date of when last the item was modified<br>getItemThumbnailUrl</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> </p>
+<h3 id="constructor-1"><a href="#constructor-1" class="headerlink" title="constructor"></a>constructor</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L43-L74" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:43-74</a></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>instance</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> of the plugin</li>
+<li><code>plugin</code>  </li>
+<li><code>opts</code>  </li>
+</ul>
+<h3 id="updateState-4"><a href="#updateState-4" class="headerlink" title="updateState"></a>updateState</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L79-L84" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:79-84</a></p>
+<p>Little shorthand to update the state with the plugin’s state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>newState</code>  </li>
+</ul>
+<h3 id="updateState-5"><a href="#updateState-5" class="headerlink" title="updateState"></a>updateState</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Webcam/index.js#L107-L112" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Webcam/index.js:107-112</a></p>
+<p>Little shorthand to update the state with my new state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>newState</code>  </li>
+</ul>
+<h3 id="getFolder-2"><a href="#getFolder-2" class="headerlink" title="getFolder"></a>getFolder</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L116-L137" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:116-137</a></p>
+<p>Based on folder ID, fetch a new folder and update it to state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>id</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> Folder id</li>
+<li><code>name</code>  </li>
+</ul>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise</a></strong> Folders/files in folder</p>
+<h3 id="getNextFolder-2"><a href="#getNextFolder-2" class="headerlink" title="getNextFolder"></a>getNextFolder</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L144-L147" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:144-147</a></p>
+<p>Fetches new folder</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>Folder</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> </li>
+<li><code>title</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> Folder title</li>
+<li><code>folder</code>  </li>
+</ul>
+<h3 id="logout-2"><a href="#logout-2" class="headerlink" title="logout"></a>logout</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L180-L194" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:180-194</a></p>
+<p>Removes session token on client side.</p>
+<h2 id="Utils-3"><a href="#Utils-3" class="headerlink" title="Utils"></a>Utils</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Webcam/index.js#L14-L311" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Webcam/index.js:14-311</a></p>
+<p><strong>Extends Plugin</strong></p>
+<p>Webcam</p>
+<h3 id="constructor-2"><a href="#constructor-2" class="headerlink" title="constructor"></a>constructor</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L43-L74" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:43-74</a></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>instance</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> of the plugin</li>
+<li><code>plugin</code>  </li>
+<li><code>opts</code>  </li>
+</ul>
+<h3 id="updateState-6"><a href="#updateState-6" class="headerlink" title="updateState"></a>updateState</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L79-L84" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:79-84</a></p>
+<p>Little shorthand to update the state with the plugin’s state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>newState</code>  </li>
+</ul>
+<h3 id="updateState-7"><a href="#updateState-7" class="headerlink" title="updateState"></a>updateState</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Webcam/index.js#L107-L112" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Webcam/index.js:107-112</a></p>
+<p>Little shorthand to update the state with my new state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>newState</code>  </li>
+</ul>
+<h3 id="getFolder-3"><a href="#getFolder-3" class="headerlink" title="getFolder"></a>getFolder</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L116-L137" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:116-137</a></p>
+<p>Based on folder ID, fetch a new folder and update it to state</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>id</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> Folder id</li>
+<li><code>name</code>  </li>
+</ul>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise</a></strong> Folders/files in folder</p>
+<h3 id="getNextFolder-3"><a href="#getNextFolder-3" class="headerlink" title="getNextFolder"></a>getNextFolder</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L144-L147" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:144-147</a></p>
+<p>Fetches new folder</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>Folder</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> </li>
+<li><code>title</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> Folder title</li>
+<li><code>folder</code>  </li>
+</ul>
+<h3 id="logout-3"><a href="#logout-3" class="headerlink" title="logout"></a>logout</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/generic-provider-views/index.js#L180-L194" title="Source code on GitHub" target="_blank" rel="noopener">src/generic-provider-views/index.js:180-194</a></p>
+<p>Removes session token on client side.</p>
+<h2 id="index"><a href="#index" class="headerlink" title="index"></a>index</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/StatusBar/index.js#L11-L141" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/StatusBar/index.js:11-141</a></p>
+<p><strong>Extends Plugin</strong></p>
+<p>A status bar.</p>
+<h3 id="checkDragDropSupport"><a href="#checkDragDropSupport" class="headerlink" title="checkDragDropSupport"></a>checkDragDropSupport</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/DragDrop/index.js#L68-L84" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/DragDrop/index.js:68-84</a></p>
+<p>Checks if the browser supports Drag &amp; Drop (not supported on mobile devices, for example).</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" rel="noopener">Boolean</a></strong> true if supported, false otherwise</p>
+<h2 id="index-1"><a href="#index-1" class="headerlink" title="index"></a>index</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/DragDrop/index.js#L11-L162" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/DragDrop/index.js:11-162</a></p>
+<p><strong>Extends Plugin</strong></p>
+<p>Drag &amp; Drop plugin</p>
+<h3 id="checkDragDropSupport-1"><a href="#checkDragDropSupport-1" class="headerlink" title="checkDragDropSupport"></a>checkDragDropSupport</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/DragDrop/index.js#L68-L84" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/DragDrop/index.js:68-84</a></p>
+<p>Checks if the browser supports Drag &amp; Drop (not supported on mobile devices, for example).</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" rel="noopener">Boolean</a></strong> true if supported, false otherwise</p>
+<h2 id="index-2"><a href="#index-2" class="headerlink" title="index"></a>index</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Transloadit/index.js#L8-L374" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Transloadit/index.js:8-374</a></p>
+<p><strong>Extends Plugin</strong></p>
+<p>Upload files to Transloadit using Tus.</p>
+<h3 id="checkDragDropSupport-2"><a href="#checkDragDropSupport-2" class="headerlink" title="checkDragDropSupport"></a>checkDragDropSupport</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/DragDrop/index.js#L68-L84" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/DragDrop/index.js:68-84</a></p>
+<p>Checks if the browser supports Drag &amp; Drop (not supported on mobile devices, for example).</p>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" rel="noopener">Boolean</a></strong> true if supported, false otherwise</p>
+<h2 id="Dummy"><a href="#Dummy" class="headerlink" title="Dummy"></a>Dummy</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Dummy.js#L9-L67" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Dummy.js:9-67</a></p>
+<p><strong>Extends Plugin</strong></p>
+<p>Dummy<br>A test plugin, does nothing useful</p>
+<h2 id="flatten"><a href="#flatten" class="headerlink" title="flatten"></a>flatten</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L17-L19" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:17-19</a></p>
+<p>Shallow flatten nested arrays.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>arr</code>  </li>
+</ul>
+<h2 id="groupBy"><a href="#groupBy" class="headerlink" title="groupBy"></a>groupBy</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L76-L84" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:76-84</a></p>
+<p>Partition array by a grouping function.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>array</code> <strong>[type]</strong> Input array</li>
+<li><code>groupingFn</code> <strong>[type]</strong> Grouping function</li>
+</ul>
+<p>Returns <strong>[type]</strong> Array of arrays</p>
+<h2 id="every"><a href="#every" class="headerlink" title="every"></a>every</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L92-L100" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:92-100</a></p>
+<p>Tests if every array element passes predicate</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>array</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">Array</a></strong> Input array</li>
+<li><code>predicateFn</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> Predicate</li>
+</ul>
+<p>Returns <strong>bool</strong> Every element pass</p>
+<h2 id="toArray"><a href="#toArray" class="headerlink" title="toArray"></a>toArray</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L105-L107" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:105-107</a></p>
+<p>Converts list into array</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>list</code>  </li>
+</ul>
+<h2 id="generateFileID"><a href="#generateFileID" class="headerlink" title="generateFileID"></a>generateFileID</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L116-L121" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:116-121</a></p>
+<p>Takes a fileName and turns it into fileID, by converting to lowercase,<br>removing extra characters and adding unix timestamp</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>fileName</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> </li>
+</ul>
+<h2 id="runPromiseSequence"><a href="#runPromiseSequence" class="headerlink" title="runPromiseSequence"></a>runPromiseSequence</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L130-L136" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:130-136</a></p>
+<p>Runs an array of promise-returning functions in sequence.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>functions</code>  </li>
+<li><code>args</code> <strong>…Any</strong> </li>
+</ul>
+<h2 id="isPreviewSupported"><a href="#isPreviewSupported" class="headerlink" title="isPreviewSupported"></a>isPreviewSupported</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L152-L158" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:152-158</a></p>
+<p>Takes function or class, returns its name.<br>Because IE doesn’t support <code>constructor.name</code>.<br><a href="https://gist.github.com/dfkaye/6384439" target="_blank" rel="noopener">https://gist.github.com/dfkaye/6384439</a>, <a href="http://stackoverflow.com/a/15714445" target="_blank" rel="noopener">http://stackoverflow.com/a/15714445</a></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>fn</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> — function</li>
+<li><code>fileTypeSpecific</code>  </li>
+</ul>
+<h2 id="copyToClipboard"><a href="#copyToClipboard" class="headerlink" title="copyToClipboard"></a>copyToClipboard</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L300-L340" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:300-340</a></p>
+<p>Copies text to clipboard by creating an almost invisible textarea,<br>adding text there, then running execCommand(‘copy’).<br>Falls back to prompt() when the easy way fails (hello, Safari!)<br>From <a href="http://stackoverflow.com/a/30810322" target="_blank" rel="noopener">http://stackoverflow.com/a/30810322</a></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>textToCopy</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> </li>
+<li><code>fallbackString</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a></strong> </li>
+</ul>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise</a></strong> </p>
+<h2 id="isDOMElement"><a href="#isDOMElement" class="headerlink" title="isDOMElement"></a>isDOMElement</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L384-L386" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:384-386</a></p>
+<p>Check if an object is a DOM element. Duck-typing based on <code>nodeType</code>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>obj</code> <strong>Any</strong> </li>
+</ul>
+<h2 id="findDOMElement"><a href="#findDOMElement" class="headerlink" title="findDOMElement"></a>findDOMElement</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Utils.js#L394-L402" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Utils.js:394-402</a></p>
+<p>Find a DOM element.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>element</code> <strong>(<a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling" target="_blank" rel="noopener">Node</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">string</a>)</strong> </li>
+</ul>
+<p>Returns <strong>(<a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling" target="_blank" rel="noopener">Node</a> | null)</strong> </p>
+<h2 id="Translator"><a href="#Translator" class="headerlink" title="Translator"></a>Translator</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Translator.js#L14-L86" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Translator.js:14-86</a></p>
+<p>Translates strings with interpolation &amp; pluralization support.<br>Extensible with custom dictionaries and pluralization functions.</p>
+<p>Borrows heavily from and inspired by Polyglot <a href="https://github.com/airbnb/polyglot.js" target="_blank" rel="noopener">https://github.com/airbnb/polyglot.js</a>,<br>basically a stripped-down version of it. Differences: pluralization functions are not hardcoded<br>and can be easily added among with dictionaries, nested objects are used for pluralization<br>as opposed to <code>||||</code> delimeter</p>
+<p>Usage example: <code>translator.translate(&#39;files_chosen&#39;, {smart_count: 3})</code></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>opts</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> </li>
+</ul>
+<h3 id="interpolate"><a href="#interpolate" class="headerlink" title="interpolate"></a>interpolate</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Translator.js#L48-L69" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Translator.js:48-69</a></p>
+<p>Takes a string with placeholder variables like <code>%{smart_count} file selected</code><br>and replaces it with values from options <code>{smart_count: 5}</code></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>phrase</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">string</a></strong> that needs interpolation, with placeholders</li>
+<li><code>options</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> with values that will be used to replace placeholders</li>
+</ul>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">string</a></strong> interpolated</p>
+<p><strong>Meta</strong></p>
+<ul>
+<li><strong>license</strong>: https&#x3A;//github.com/airbnb/polyglot.js/blob/master/LICENSE<br>taken from https&#x3A;//github.com/airbnb/polyglot.js/blob/master/lib/polyglot.js#L299</li>
+</ul>
+<h3 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/core/Translator.js#L78-L85" title="Source code on GitHub" target="_blank" rel="noopener">src/core/Translator.js:78-85</a></p>
+<p>Public translate method</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>key</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">string</a></strong> </li>
+<li><code>options</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> with values that will be used later to replace placeholders in string</li>
+</ul>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">string</a></strong> translated (and interpolated)</p>
+<h2 id="Webcam"><a href="#Webcam" class="headerlink" title="Webcam"></a>Webcam</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/uppy-base/src/plugins/Webcam.js#L8-L336" title="Source code on GitHub" target="_blank" rel="noopener">src/uppy-base/src/plugins/Webcam.js:8-336</a></p>
+<p>Webcam Plugin</p>
+<h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/uppy-base/src/plugins/Webcam.js#L61-L78" title="Source code on GitHub" target="_blank" rel="noopener">src/uppy-base/src/plugins/Webcam.js:61-78</a></p>
+<p>Checks for getUserMedia support</p>
+<h3 id="detectFlash"><a href="#detectFlash" class="headerlink" title="detectFlash"></a>detectFlash</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/uppy-base/src/plugins/Webcam.js#L138-L162" title="Source code on GitHub" target="_blank" rel="noopener">src/uppy-base/src/plugins/Webcam.js:138-162</a></p>
+<p>Detects if browser supports flash<br>Code snippet borrowed from: <a href="https://github.com/swfobject/swfobject" target="_blank" rel="noopener">https://github.com/swfobject/swfobject</a></p>
+<p>Returns <strong>bool</strong> flash supported</p>
+<h3 id="stop"><a href="#stop" class="headerlink" title="stop"></a>stop</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/uppy-base/src/plugins/Webcam.js#L247-L264" title="Source code on GitHub" target="_blank" rel="noopener">src/uppy-base/src/plugins/Webcam.js:247-264</a></p>
+<p>Stops the webcam capture and video playback.</p>
+<h3 id="getImage"><a href="#getImage" class="headerlink" title="getImage"></a>getImage</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/uppy-base/src/plugins/Webcam.js#L300-L317" title="Source code on GitHub" target="_blank" rel="noopener">src/uppy-base/src/plugins/Webcam.js:300-317</a></p>
+<p>Takes a snapshot and displays it in a canvas.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>video</code>  </li>
+<li><code>opts</code>  </li>
+</ul>
+<h2 id="ProgressBar"><a href="#ProgressBar" class="headerlink" title="ProgressBar"></a>ProgressBar</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/ProgressBar.js#L8-L45" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/ProgressBar.js:8-45</a></p>
+<p><strong>Extends Plugin</strong></p>
+<p>Progress bar</p>
+<h2 id="Informer"><a href="#Informer" class="headerlink" title="Informer"></a>Informer</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Informer.js#L11-L64" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Informer.js:11-64</a></p>
+<p><strong>Extends Plugin</strong></p>
+<p>Informer<br>Shows rad message bubbles<br>used like this: <code>core.emit(&#39;informer&#39;, &#39;hello world&#39;, &#39;info&#39;, 5000)</code><br>or for errors: <code>core.emit(&#39;informer&#39;, &#39;Error uploading img.jpg&#39;, &#39;error&#39;, 5000)</code></p>
+<h2 id="MetaData"><a href="#MetaData" class="headerlink" title="MetaData"></a>MetaData</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/MetaData.js#L8-L51" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/MetaData.js:8-51</a></p>
+<p><strong>Extends Plugin</strong></p>
+<p>Meta Data<br>Adds metadata fields to Uppy</p>
+<h2 id="Tus10"><a href="#Tus10" class="headerlink" title="Tus10"></a>Tus10</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Tus10.js#L29-L363" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Tus10.js:29-363</a></p>
+<p><strong>Extends Plugin</strong></p>
+<p>Tus resumable file uploader</p>
+<h3 id="upload"><a href="#upload" class="headerlink" title="upload"></a>upload</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Tus10.js#L115-L189" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Tus10.js:115-189</a></p>
+<p>Create a new Tus upload</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>file</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> for use with upload</li>
+<li><code>current</code> <strong>integer</strong> file in a queue</li>
+<li><code>total</code> <strong>integer</strong> number of files in a queue</li>
+</ul>
+<p>Returns <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise</a></strong> </p>
+<h2 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Transloadit/Client.js#L4-L59" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Transloadit/Client.js:4-59</a></p>
+<p>A Barebones HTTP API client for Transloadit.</p>
+<h3 id="createAssembly"><a href="#createAssembly" class="headerlink" title="createAssembly"></a>createAssembly</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Transloadit/Client.js#L15-L48" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Transloadit/Client.js:15-48</a></p>
+<p>Create a new assembly.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>options</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">object</a></strong> </li>
+<li><code>$0</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">Object</a></strong> <ul>
+<li><code>$0.templateId</code>  </li>
+<li><code>$0.params</code>  </li>
+<li><code>$0.fields</code>  </li>
+<li><code>$0.signature</code>  </li>
+<li><code>$0.expectedFiles</code>  </li>
+</ul>
+</li>
+</ul>
+<h3 id="getAssemblyStatus"><a href="#getAssemblyStatus" class="headerlink" title="getAssemblyStatus"></a>getAssemblyStatus</h3><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Transloadit/Client.js#L55-L58" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Transloadit/Client.js:55-58</a></p>
+<p>Get the current status for an assembly.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>url</code> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">string</a></strong> The status endpoint of the assembly.</li>
+</ul>
+<h2 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h2><p><a href="https://github.com/transloadit/uppy/blob/e489dc95a3d4e09a5f267dabf4a468f9fa17f105/src/plugins/Transloadit/Socket.js#L8-L60" title="Source code on GitHub" target="_blank" rel="noopener">src/plugins/Transloadit/Socket.js:8-60</a></p>
+<p>WebSocket status API client for Transloadit.</p>
+
+    
+    <div class="footer">Caught a mistake or want to contribute to the documentation?
+       <a href="https://github.com/transloadit/uppy/blob/master/website/src/docs/api.md" rel="noreferrer noopener" target="_blank">Edit/fork this page directly on Github</a>!
+    </div>
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>
